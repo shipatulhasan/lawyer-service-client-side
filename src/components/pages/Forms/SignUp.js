@@ -92,7 +92,7 @@ const SignUp = () => {
         >
 
 
-            <h1 className="text-4xl font-bold text-center text-khaki uppercase">Sign Up</h1>
+            <h1 className="text-4xl font-bold text-center text-khaki up">Sign Up</h1>
   
              <p className="text-red-600 font-semibold text-xl py-4">{error}</p>
          
@@ -115,7 +115,7 @@ const SignUp = () => {
               onSubmit={handleSubmit}
               className="space-y-6 ng-untouched ng-pristine ng-valid"
             >
-              <div className="space-y-1 text-sm mt-8">
+              <div className="space-y-1 text-base mt-8">
              
                 <input
                   type="text"
@@ -136,7 +136,7 @@ const SignUp = () => {
                   className="w-full px-4 py-3 bg-slate-100 bg-opacity-20 focus:outline-none text-slate-100"
                 />
               </div>
-              <div className="space-y-1 text-sm">
+              <div className="space-y-1 text-base">
                
                 <input
                   type="text"
@@ -146,7 +146,7 @@ const SignUp = () => {
                   className="w-full px-4 py-3 bg-slate-100 bg-opacity-20 focus:outline-none text-slate-100"
                 />
               </div>
-              <div className="space-y-1 text-sm">
+              <div className="space-y-1 text-base">
                
                 <div className="relative flex items-center justify-center">
                   <input
@@ -164,7 +164,7 @@ const SignUp = () => {
                   </div>
                 </div>
               </div>
-              <div className="space-y-1 text-sm">
+              <div className="space-y-1 text-base">
             
                 <div className="relative flex items-center justify-center">
                   <input
