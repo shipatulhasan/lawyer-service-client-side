@@ -1,36 +1,34 @@
 import React from "react";
 import CountUp, { useCountUp } from "react-countup";
-
+import banner from '../../../asset/banner/inner_background_01.jpg'
 
 const Statistics = () => {
   const statistcs = [
     {
-      
       count: 144,
       title: "Case closed",
     },
     {
-     
-      count: 50,
-      title: "Trusted Client",
+     count: 50,
+     title: "Trusted Client",
     },
     {
-      
+     count: 25,
+     title: "Partners",
+    },
+    
+    {
       count: 90,
       title: "Successfull Case",
     },
-    {
     
-      count: 25,
-      title: "Partners",
-    },
   ];
 
   return (
-    <div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl  md:px-8 lg:py-20  border border-khaki rounded bg-slate-700 backdrop-blur md:backdrop-blur-md bg-opacity-30 shadow-2xl">
+    <div class="px-4 py-16 my-10 md:my-20 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl  md:px-8 lg:py-20 bg-cover bg-no-repeat  border border-khaki rounded bg-slate-800 shadow-2xl" style={{backgroundImage:`url(${banner})`,backgroundColor:'rgb(0 0 0 / 35%)',backgroundBlendMode:'overlay'}}>
       <div class="grid grid-cols-2 gap-8 md:grid-cols-4 ">
         {statistcs.map((stat, i) => (
-          <div key={i} class="text-center text-white">
+          <div key={i} class={`text-center text-white z-10 ${i===statistcs.length-1?'md:border-none':'md:border-r'} border-khaki`}>
         
             <h6 class="text-4xl font-bold lg:text-5xl xl:text-6xl mb-3">
               <CountUp
