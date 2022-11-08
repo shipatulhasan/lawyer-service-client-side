@@ -1,57 +1,64 @@
 import React, { useState } from "react";
+import { useContext } from "react";
+import { BiLogIn, IconName } from "react-icons/bi";
 import { Link, NavLink } from "react-router-dom";
-import brand from '../../../../asset/brand/logo.png'
+import brand from "../../../../asset/brand/logo.png";
+import { AuthContext } from "../../../AuthProvider/AuthProvider";
 import UserProfile from "./UserProfile";
-
 
 const Navbar = () => {
   const [isOpen, setOpen] = useState(false);
-  
 
-  const menuList = <>
-  
-  <NavLink to='/home'>
-  {({ isActive }) => (
+  const { user, logOut } = useContext(AuthContext);
 
-<li className={`${isActive ? 'text-khaki' : 'text-white'} px-3 py-2 mx-6 list-none lg:mr-2 mt-2 font-bold transition-colors duration-300 transform hover:text-khaki lg:mt-0`}>
-Home
-</li>
-
-  )}
-    
-  </NavLink>
-  <NavLink to='/about'>
-  {({ isActive }) => (
-
-<li className={`${isActive ? 'text-khaki' : 'text-white'} px-3 py-2 mx-6 list-none lg:mr-2 mt-2 font-bold transition-colors duration-300 transform hover:text-khaki lg:mt-0`}>
-About
-</li>
-
-  )}
-    
-  </NavLink>
-  <NavLink to='/services'>
-  {({ isActive }) => (
-
-<li className={`${isActive ? 'text-khaki' : 'text-white'} px-3 py-2 mx-6 list-none lg:mr-2 mt-2 font-bold transition-colors duration-300 transform hover:text-khaki lg:mt-0`}>
-Services
-</li>
-
-  )}
-    
-  </NavLink>
-  <NavLink to='/blog'>
-  {({ isActive }) => (
-
-<li className={`${isActive ? 'text-khaki' : 'text-white'} px-3 py-2 mx-6 list-none lg:mr-2 mt-2 font-bold transition-colors duration-300 transform hover:text-khaki lg:mt-0`}>
-Blog
-</li>
-
-  )}
-    
-  </NavLink>
-  
-  </>
+  const menuList = (
+    <>
+      <NavLink to="/home">
+        {({ isActive }) => (
+          <li
+            className={`${
+              isActive ? "text-khaki" : "text-white"
+            } px-3 py-2 mx-6 list-none lg:mr-2 mt-2 font-bold transition-colors duration-300 transform hover:text-khaki lg:mt-0`}
+          >
+            Home
+          </li>
+        )}
+      </NavLink>
+      <NavLink to="/about">
+        {({ isActive }) => (
+          <li
+            className={`${
+              isActive ? "text-khaki" : "text-white"
+            } px-3 py-2 mx-6 list-none lg:mr-2 mt-2 font-bold transition-colors duration-300 transform hover:text-khaki lg:mt-0`}
+          >
+            About
+          </li>
+        )}
+      </NavLink>
+      <NavLink to="/services">
+        {({ isActive }) => (
+          <li
+            className={`${
+              isActive ? "text-khaki" : "text-white"
+            } px-3 py-2 mx-6 list-none lg:mr-2 mt-2 font-bold transition-colors duration-300 transform hover:text-khaki lg:mt-0`}
+          >
+            Services
+          </li>
+        )}
+      </NavLink>
+      <NavLink to="/blog">
+        {({ isActive }) => (
+          <li
+            className={`${
+              isActive ? "text-khaki" : "text-white"
+            } px-3 py-2 mx-6 list-none lg:mr-2 mt-2 font-bold transition-colors duration-300 transform hover:text-khaki lg:mt-0`}
+          >
+            Blog
+          </li>
+        )}
+      </NavLink>
+    </>
+  );
 
   return (
     <nav className="lg:absolute top-0 z-50 w-full bg-black lg:bg-transparent dark:bg-gray-800">
@@ -63,7 +70,7 @@ Blog
                 className="text-2xl font-bold text-gray-800 transition-colors duration-300 transform dark:text-white lg:text-3xl hover:text-gray-700 dark:hover:text-gray-300"
                 to="/"
               >
-              <img className="w-2/5" src={brand} alt="" />
+                <img className="w-2/5" src={brand} alt="" />
               </Link>
             </div>
 
@@ -75,42 +82,37 @@ Blog
                 className="text-white text-lg dark:text-gray-200 hover:text-slate-200 dark:hover:text-gray-400 focus:outline-none focus:text-slate-100 dark:focus:text-slate-200"
                 aria-label="toggle menu"
               >
-                  {
-                     !isOpen ?
-                     <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="w-6 h-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M4 8h16M4 16h16"
-                  />
-                </svg>
-                :
-                
-                <svg
-                  
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="w-6 h-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
-                }
-                
-
+                {!isOpen ? (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-6 h-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M4 8h16M4 16h16"
+                    />
+                  </svg>
+                ) : (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-6 h-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                )}
               </button>
             </div>
           </div>
@@ -128,28 +130,27 @@ Blog
             </div>
 
             <div className="flex items-center mt-4 px-0 md:px-10 lg:mt-0">
-              
-                {/* // user?.uid? */}
+              {user?.uid ? (
                 <div className="flex items-center -ml-1 lg:ml-0">
-                <UserProfile />
-                <h3 className="mx-2 text-white dark:text-gray-200 lg:hidden">
-                  {/* {user?.displayName} */}
-                </h3>
-              </div>
-            
-               <>
-               <Link to='/login'
-                className=" mx-2 text-slate-50 transition-colors duration-300 transform font-semibold lg:block dark:text-gray-200 hover:text-slate-200 dark:hover:text-gray-400 focus:text-gray-700 dark:focus:text-gray-400 focus:outline-none"
-                aria-label="show notifications"
-              >
-                Login
-              </Link>
-            
-              </>
-              
-              
-
-              
+                  <UserProfile user={user} logOut ={logOut}  />
+                  <h3 className="mx-2 text-white dark:text-gray-200 lg:hidden">
+                    {user?.displayName}
+                  </h3>
+                </div>
+              ) : (
+                <NavLink to="/login">
+                  {({ isActive }) => (
+                    <li
+                      className={`${
+                        isActive ? "text-khaki" : "text-white"
+                      } px-3 py-2 list-none lg:mr-2 mt-2 font-bold transition-colors duration-300 transform hover:text-khaki lg:mt-0 inline-flex items-center gap-3`}
+                    >
+                      <BiLogIn />
+                      Login
+                    </li>
+                  )}
+                </NavLink>
+              )}
             </div>
           </div>
         </div>

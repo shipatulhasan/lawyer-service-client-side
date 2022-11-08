@@ -18,7 +18,7 @@ const PartnersSection = () => {
         </div>
         </div>
 
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-10 items-center justify-items-center">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 items-center justify-items-center">
             <img src={img1} alt="" />
             <img src={img2} alt="" />
             <img src={img3} alt="" />

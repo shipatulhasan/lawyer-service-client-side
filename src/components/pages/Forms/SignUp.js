@@ -1,13 +1,21 @@
 import React, { useState } from 'react';
 import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import banner from '../../../asset/banner/inner_background_01.jpg'
 import hero from '../../../asset/banner/hero_banner.jpg'
+import { useContext } from 'react';
+import { AuthContext } from '../../AuthProvider/AuthProvider';
+import toast from 'react-hot-toast';
 
 const SignUp = () => {
+
+    const {signInWithGoogle, createUser} = useContext(AuthContext)
+
     const [isOpen,setIsOpen] = useState(false)
     const [isConfirm,setIsConfirm] = useState(false)
     const [error,setError] = useState('')
+
+    const navigate = useNavigate()
 
     const handleSubmit = (e) => {
 
@@ -18,6 +26,8 @@ const SignUp = () => {
         const email = form.email.value
         const pass = form.password.value
         const confirmPass = form.cPassword.value
+
+        console.log(name,photo,email,pass,confirmPass)
     
         
     
@@ -25,6 +35,27 @@ const SignUp = () => {
             setError('Both password should be machted')
             return 
         }
+
+
+        createUser(email,pass)
+        .then(result => {
+          console.log(result.user)
+          toast.success('Successfully registered')
+          form.reset()
+          setError('')
+        })
+        .catch(err=>setError(err.message))
+    }
+
+
+    const handleGoogleSignUp = ()=>{
+      signInWithGoogle()
+      .then(result=>{ 
+        console.log(result.user)
+        toast.success('Successfully Registered')
+        // navigate('/')
+      })
+      .catch(err=>setError(err.message))
     }
 
 
@@ -36,12 +67,21 @@ const SignUp = () => {
 {/* form */}
 
 
-        <div className="w-full max-w-md p-8 space-y-3 bg-slate-200 rounded-xl dark:bg-gray-900 dark:text-gray-100"style={{backgroundImage:`url(${banner})`,backgroundColor:'rgb(0 0 0 / 35%)',backgroundBlendMode:'overlay'}}>
-            <h1 className="text-4xl font-bold text-center text-khaki">Sign up</h1>
+        <div 
+        className="w-full max-w-md p-8 space-y-3 bg-slate-200 rounded-xl dark:bg-gray-900 dark:text-gray-100"
+        style={{backgroundImage:`url(${banner})`,backgroundColor:'rgb(0 0 0 / 35%)',backgroundBlendMode:'overlay'}}
+        >
+
+
+            <h1 className="text-4xl font-bold text-center text-khaki">Sign Up</h1>
   
-            <p className="text-red-600 font-semibold text-xl py-4">{error}</p>
+            {
+              error && <p className="text-red-600 font-semibold text-xl py-4">{error}</p>
+            }
+
           {/* google signup */}
-          <button className="flex items-center justify-center mt-4 text-white transition-colors duration-300 transform border border-khaki w-full bg-slate-100 bg-opacity-20 hover:bg-khaki">
+
+          <button onClick={handleGoogleSignUp} className="flex items-center justify-center mt-4 text-white transition-colors duration-300 transform border border-khaki w-full bg-white bg-opacity-20 hover:bg-khaki tracking-widest">
             <div className="px-4 py-2">
                 <svg className="w-6 h-6" viewBox="0 0 40 40">
                     <path d="M36.3425 16.7358H35V16.6667H20V23.3333H29.4192C28.045 27.2142 24.3525 30 20 30C14.4775 30 10 25.5225 10 20C10 14.4775 14.4775 9.99999 20 9.99999C22.5492 9.99999 24.8683 10.9617 26.6342 12.5325L31.3483 7.81833C28.3717 5.04416 24.39 3.33333 20 3.33333C10.7958 3.33333 3.33335 10.7958 3.33335 20C3.33335 29.2042 10.7958 36.6667 20 36.6667C29.2042 36.6667 36.6667 29.2042 36.6667 20C36.6667 18.8825 36.5517 17.7917 36.3425 16.7358Z" fill="#FFC107" />
@@ -51,16 +91,14 @@ const SignUp = () => {
                 </svg>
             </div>
 
-            <span className="w-5/6 px-4 py-3 font-bold uppercase text-center">Sign in with Google</span>
+            <span className="w-5/6 px-4 py-3 font-bold uppercase text-center">Sign up with Google</span>
         </button>
             <form
               onSubmit={handleSubmit}
               className="space-y-6 ng-untouched ng-pristine ng-valid"
             >
-              <div className="space-y-1 text-sm">
-                <label htmlFor="username" className="block dark:text-gray-400">
-                  Username
-                </label>
+              <div className="space-y-1 text-sm mt-8">
+             
                 <input
                   type="text"
                   name="name"
@@ -70,21 +108,18 @@ const SignUp = () => {
                 />
               </div>
               <div className="space-y-1 text-sm">
-                <label htmlFor="username" className="block dark:text-gray-400">
-                  Email
-                </label>
+             
                 <input
                   type="email"
                   name="email"
                   id="email"
+                  required
                   placeholder="jhon@gmail.com"
                   className="w-full px-4 py-3 bg-slate-100 bg-opacity-20 focus:outline-none text-slate-100"
                 />
               </div>
               <div className="space-y-1 text-sm">
-                <label htmlFor="photourl" className="block dark:text-gray-400">
-                  PhotoURL
-                </label>
+               
                 <input
                   type="text"
                   name="photourl"
@@ -94,9 +129,7 @@ const SignUp = () => {
                 />
               </div>
               <div className="space-y-1 text-sm">
-                <label htmlFor="password" className="block dark:text-gray-400">
-                  Password
-                </label>
+               
                 <div className="relative flex items-center justify-center">
                   <input
                     type={isOpen ?'text':'password'}
@@ -114,9 +147,7 @@ const SignUp = () => {
                 </div>
               </div>
               <div className="space-y-1 text-sm">
-                <label htmlFor="password" className="block dark:text-gray-400">
-                  Confirm Password
-                </label>
+            
                 <div className="relative flex items-center justify-center">
                   <input
                     type={isConfirm ?'text':'password'}
@@ -141,11 +172,11 @@ const SignUp = () => {
            
           
             <p className="text-sm font-bold text-center sm:px-6 text-slate-200">
-              Already have an account?
+              Already have an account ?
               <Link
                 rel="noopener noreferrer"
                 to="/login"
-                className="underline text-khaki text-orange"
+                className="underline text-slate-100 hover:text-khaki "
               >
                 {" "}
                 Sign in
