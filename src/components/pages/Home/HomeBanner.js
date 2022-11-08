@@ -6,11 +6,10 @@ const HomeBanner = () => {
     return (
         <main>
 
-        
-        <section className='relative min-h-[400px] md:min-h-[600px] lg:min-h-screen pt-20 pb-52 flex items-center justify-start bg-center bg-no-repeat bg-cover' style={{backgroundImage:`url(${banner})`}}>
+        <section className='relative min-h-[400px] md:min-h-[600px] lg:min-h-screen pt-10 lg:pt-32 pb-52 flex items-center justify-start bg-center bg-no-repeat bg-cover' style={{backgroundImage:`url(${banner})`}}>
             <div className='w-full h-full absolute bg-gradient-to-r from-black to-transparent opacity-60' />
-             <div className="px-10 w-full max-w-xl xl:pl-16 xl:mb-0 xl:w-2/3 z-10">
-                <h2 className="max-w-xl mb-4 md:mb-6 text-4xl leading-tight font-bold font-crimson tracking-tight text-white md:text-7xl md:leading-tight capitalize">
+             <div className="px-6 md:px-16 lg:px-0 w-full max-w-xl xl:pl-16 xl:mb-0 xl:w-2/3 z-10">
+                <h2 className="max-w-xl mb-4 md:mb-6 text-5xl leading-tight font-bold font-crimson tracking-tight text-white md:text-7xl md:leading-tight capitalize">
                     Easy & <span className='text-khaki'> quick leagal </span> helps
                 </h2>
                 <p className='text-white text-sm md:text-lg font-semibold '>

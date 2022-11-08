@@ -10,7 +10,7 @@ const PartnersSection = () => {
               <div className="mx-auto sm:text-center lg:max-w-2xl">
         <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
           <div>
-          <p className='text-khaki tex-sm font-bold tracking-widest mb-3'>Partner</p>
+          <p className='text-khaki  font-bold tracking-widest '>Partner</p>
           </div>
           <h2 className="max-w-xl mb-6 font-crimson text-3xl font-bold md:leading-tight tracking-tight text-black dark:text-white md:text-6xl md:mx-auto">
             Trusted <span className='text-khaki'>Companies</span>
