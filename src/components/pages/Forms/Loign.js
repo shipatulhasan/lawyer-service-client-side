@@ -31,7 +31,9 @@ const Loign = () => {
             setError('')
         })
         .catch(err=>{
-            setError(err.message)
+            const firebaseError = err.message
+            const errorMsg = firebaseError.split('/')[1].replace(/[-())/]+/g,(' '))
+            setError(errorMsg)
         })
     }
 
@@ -42,7 +44,11 @@ const Loign = () => {
           toast.success('Successfully Registered')
           // navigate('/')
         })
-        .catch(err=>setError(err))
+        .catch(err=>{
+            const firebaseError = err.message
+            const errorMsg = firebaseError.split('/')[1].replace(/[-())/]+/g,(' '))
+            setError(errorMsg)
+        })
       }
     return (
         <div className="py-20 flex flex-col justify-center min-h-screen bg-no-repeat bg-cover" style={{backgroundImage:`url(${hero})`}}>

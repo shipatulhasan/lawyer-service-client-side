@@ -9,7 +9,7 @@ import toast from 'react-hot-toast';
 
 const SignUp = () => {
 
-    const {signInWithGoogle, createUser} = useContext(AuthContext)
+    const {signInWithGoogle, createUser, updateUser} = useContext(AuthContext)
 
     const [isOpen,setIsOpen] = useState(false)
     const [isConfirm,setIsConfirm] = useState(false)
@@ -27,7 +27,11 @@ const SignUp = () => {
         const pass = form.password.value
         const confirmPass = form.cPassword.value
 
-        console.log(name,photo,email,pass,confirmPass)
+
+        const profile = {
+          displayName:name,
+          photoURL:photo
+        }
     
         
     
@@ -41,10 +45,15 @@ const SignUp = () => {
         .then(result => {
           console.log(result.user)
           toast.success('Successfully registered')
+          handleUpdate(profile)
           form.reset()
           setError('')
         })
-        .catch(err=>setError(err.message))
+        .catch(err=>{
+          const firebaseError = err.message
+            const errorMsg = firebaseError.split('/')[1].replace(/[-())/]+/g,(' '))
+            setError(errorMsg)
+        })
     }
 
 
@@ -55,7 +64,17 @@ const SignUp = () => {
         toast.success('Successfully Registered')
         // navigate('/')
       })
-      .catch(err=>setError(err.message))
+      .catch(err=>{
+        const firebaseError = err.message
+            const errorMsg = firebaseError.split('/')[1].replace(/[-())/]+/g,(' '))
+            setError(errorMsg)
+      })
+    }
+
+    const handleUpdate=(profile)=>{
+      updateUser(profile)
+      .then(()=>{ })
+      .catch(err=>console.error(err))
     }
 
 
@@ -73,11 +92,10 @@ const SignUp = () => {
         >
 
 
-            <h1 className="text-4xl font-bold text-center text-khaki">Sign Up</h1>
+            <h1 className="text-4xl font-bold text-center text-khaki uppercase">Sign Up</h1>
   
-            {
-              error && <p className="text-red-600 font-semibold text-xl py-4">{error}</p>
-            }
+             <p className="text-red-600 font-semibold text-xl py-4">{error}</p>
+         
 
           {/* google signup */}
 
