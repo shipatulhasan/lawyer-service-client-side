@@ -1,13 +1,18 @@
 import React from 'react';
-import { Outlet } from 'react-router-dom';
+import { createContext } from 'react';
+import { Outlet, useLoaderData } from 'react-router-dom';
 import Navbar from '../components/pages/shared/Navbar/Navbar';
 
+export const ServiceContext = createContext()
+
 const Main = () => {
+
+    const services = useLoaderData()
     return (
-        <div>
+        <ServiceContext.Provider value={services}>
             <Navbar />
             <Outlet />
-        </div>
+        </ServiceContext.Provider>
     );
 };
 
