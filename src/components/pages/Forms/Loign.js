@@ -24,6 +24,7 @@ const Loign = () => {
 
     signIn(email, pass)
       .then((result) => {
+        const user = result.user
         toast.success("Successfully logged in");
         form.reset();
         setError("");
@@ -40,6 +41,7 @@ const Loign = () => {
       .then((result) => {
         console.log(result.user);
         toast.success("Successfully Registered");
+        
         // navigate('/')
       })
       .catch((err) => {

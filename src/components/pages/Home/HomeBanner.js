@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import banner from '../../../asset/banner/hero_banner.jpg'
 import IconBox from './IconBox';
 
@@ -15,9 +16,10 @@ const HomeBanner = () => {
                 <p className='text-white text-sm md:text-lg font-semibold '>
                 Law is commonly Understood as a System of  rules that are Created  and Enforeced through social or Government 
                 </p>
-                <button className='border border-khaki px-8 py-2 text-white font-bold tracking-widest uppercase text-xs mt-6 bg-slate-100 bg-opacity-20 hover:bg-khaki '>
+                <Link to='/services'
+                 className='border border-khaki px-8 py-2 text-white font-bold tracking-widest uppercase text-xs mt-6 bg-slate-100 bg-opacity-20 hover:bg-khaki '>
                     view all services
-                </button>
+                </Link>
             </div>
 
         </section>

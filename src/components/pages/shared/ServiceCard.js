@@ -1,16 +1,24 @@
 import React from 'react';
 import { BsArrowRight } from "react-icons/bs";
+import { PhotoView,PhotoProvider } from 'react-photo-view';
+import 'react-photo-view/dist/react-photo-view.css';
 import { Link } from 'react-router-dom';
 
 const ServiceCard = ({service}) => {
     const {_id,img,price,title,description} = service
     return (
         <div className='border border-khaki p-5 shadow-xl'>
+          <PhotoProvider>
+          <PhotoView src={img}>
           <img
-            className="object-cover w-full h-56 mb-6 rounded shadow-lg md:h-64 xl:h-80"
+            className="object-cover w-full h-56 mb-6 rounded shadow-lg md:h-64 xl:h-80 hover:cursor-pointer"
             src={img}
             alt=""
           />
+          </PhotoView>
+          </PhotoProvider>
+          
+          
           <p className="mb-2 text-xl font-crimson font-bold leading-none sm:text-2xl dark:text-white">
             {title}
           </p>
@@ -19,7 +27,7 @@ const ServiceCard = ({service}) => {
           </p>
           <div className='flex items-center justify-between mt-3'>
               <p className='text-khaki text-lg'>Price: ${price}</p>
-              <Link to={`/services/${_id}`}>
+              <Link to={`/service-details/${_id}`}>
               <BsArrowRight className='text-xl text-khaki font-normal' />
               </Link>
           </div>

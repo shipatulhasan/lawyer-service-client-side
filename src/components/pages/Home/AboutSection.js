@@ -5,7 +5,7 @@ import signature from '../../../asset/lawyer/john-mehta.png'
 const AboutSection = () => {
     return (
         <div className='my-10 md:my-20'>
-           <div className="px-6 py-8 md:py-20 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 ">
+           <div className="px-6 py-10 md:py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 ">
       <div className="flex flex-col lg:items-center lg:flex-row gap-5">
         <div className="flex items-center mb-6 lg:w-1/2 lg:mb-0">
           

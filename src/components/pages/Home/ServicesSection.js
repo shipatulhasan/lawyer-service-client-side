@@ -14,7 +14,7 @@ const ServicesSection = () => {
 
 
     return (
-        <section className="px-6 pb-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-8">
+        <section className="px-6 pb-8 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-8">
         <div className="mx-auto sm:text-center lg:max-w-2xl">
         <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
           <div>

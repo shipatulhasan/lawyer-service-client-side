@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { IconName, MdOutlineLogout } from "react-icons/md";
+import {  MdOutlineLogout } from "react-icons/md";
 import { FaRegUser, FaUser } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
@@ -26,7 +26,7 @@ const UserProfile = ({ user, logOut }) => {
           {user?.photoURL ? (
             <img
               src={user?.photoURL}
-              className="grayscale-[1] object-cover w-full h-full"
+              className=" object-cover w-full h-full"
               alt="avatar"
             />
           ) : (

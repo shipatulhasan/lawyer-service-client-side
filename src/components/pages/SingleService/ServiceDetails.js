@@ -1,8 +1,59 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import ReviewForm from '../shared/Reviews/ReviewForm'
+import Reviews from '../shared/Reviews/Reviews';
 
-const ServiceDetails = ({service}) => {
+const ServiceDetails = ({service,user}) => {
 
     const {_id,title,description ,topics ,breffing} = service
+    
+    const [update,setUpdate] = useState(false)
+    const [reviews,setReviews] = useState([])
+
+
+    useEffect(()=>{
+        fetch(`http://localhost:5000/review/${_id}`)
+        .then(res=>res.json())
+        .then(data=>{
+            setReviews(data)
+            setUpdate(!update)
+        })
+
+    }, [update,_id])
+
+    const handleSubmit = (e)=>{
+        e.preventDefault()
+        const form = e.target
+        const comment = form.comment.value
+        const date = new Date()
+        const commentTime = date.toLocaleString()
+
+        const review = {
+            comment,
+            service_id:_id,
+            user:user?.displayName,
+            email:user?.email,
+            img:user?.photoURL,
+            date:commentTime,
+        }
+        
+        // review post
+
+        fetch('http://localhost:5000/review',{
+            method:'post',
+            headers:{
+                'content-type':'application/json'
+            },
+            body:JSON.stringify(review)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            console.log(data)
+            form.reset()
+        })
+    }
+
+    
     return (
         <div className='col-span-3  sm:max-w-xl md:max-w-full lg:max-w-screen-xl lg:px-16'>
 
@@ -23,7 +74,38 @@ const ServiceDetails = ({service}) => {
                 {breffing}
             </p>
             </div>
-            
+
+
+            {/* Review */}
+
+
+            <div className='py-5'>
+                {
+                    user ? 
+                    <ReviewForm handleSubmit={handleSubmit} /> 
+                    :
+                    <div className='flex items-center justify-between p-4 dark:text-white  bg-slate-200 bg-opacity-25 border-t-2 border-khaki'>
+                        <p>Please sign in to write a review</p>
+                        <Link to='/login'
+                         className='border-2 border-khaki px-8 py-2 text-white font-bold tracking-widest uppercase text-xs  bg-black  hover:bg-khaki '>
+                    Sign in
+                </Link>
+                    </div>
+
+                }
+                
+                
+
+            </div>
+
+            <div className='max-w-xl'>
+                {
+                    reviews.map((review,i)=><Reviews key={review._id} review={review} index={i===reviews.length-1} />)
+                }
+                
+            </div>
+
+
         </div>
     );
 };

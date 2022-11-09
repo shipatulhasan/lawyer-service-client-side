@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useContext } from "react";
-import { BiLogIn, IconName } from "react-icons/bi";
+import { BiLogIn } from "react-icons/bi";
 import { Link, NavLink } from "react-router-dom";
 import brand from "../../../../asset/brand/logo.png";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
@@ -17,8 +17,8 @@ const Navbar = () => {
         {({ isActive }) => (
           <li
             className={`${
-              isActive ? " bg-slate-200 bg-opacity-20 border border-khaki border-opacity-100" : ""
-            } text-white px-3 py-1 mx-6 list-none lg:mr-2 mt-2 font-bold transition-colors duration-300 transform hover:bg-slate-200 hover:bg-opacity-20 border border-opacity-0 hover:border-opacity-100 border-khaki lg:mt-0`}
+              isActive ? "bg-slate-200 bg-opacity-20 border-opacity-100" : 'border-opacity-0'
+            } text-white px-3 py-1 mx-6 list-none lg:mr-2 mt-2 font-bold transition-colors duration-300 transform hover:bg-slate-200 hover:bg-opacity-20 border  hover:border-opacity-100 border-khaki lg:mt-0`}
           >
             Home
           </li>
