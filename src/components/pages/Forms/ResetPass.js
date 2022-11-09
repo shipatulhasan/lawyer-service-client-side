@@ -80,14 +80,14 @@ const ResetPass = () => {
             </form>
   
             <p className="text-sm font-bold text-center sm:px-6 text-slate-200">
-              Back to login ?
+              Back to sign in ?
               <Link
                 rel="noopener noreferrer"
                 to="/login"
                 className="underline text-slate-100 hover:text-khaki"
               >
                 {" "}
-                Login
+                Sign in
               </Link>
             </p>
           </div>

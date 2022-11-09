@@ -22,7 +22,7 @@ const UserProfile = ({ user, logOut }) => {
         onClick={() => setIsClicked(!isClicked)}
         className="flex items-center focus:outline-none"
       >
-        <div className="w-12 h-12 overflow-hidden border-2 ring-khaki ring-2 m-1 rounded-full flex items-center justify-center">
+        <div className="w-12 h-12 overflow-hidden border-2 border-transparent ring-khaki ring-2 m-1 rounded-full flex items-center justify-center">
           {user?.photoURL ? (
             <img
               src={user?.photoURL}

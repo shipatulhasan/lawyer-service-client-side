@@ -1,6 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import ServiceCard from '../shared/ServiceCard';
 
 const ServicesSection = () => {
+
+  const [services,setServices] = useState([])
+
+  useEffect(()=>{
+    fetch(`http://localhost:5000/services?limit=${3}`)
+    .then(res=>res.json())
+    .then(data=>setServices(data))
+  },[])
+
+
+
     return (
         <section className="px-6 pb-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-8">
         <div className="mx-auto sm:text-center lg:max-w-2xl">
@@ -19,20 +31,10 @@ const ServicesSection = () => {
 
       {/* service boxex */}
       <div className="grid gap-8 mb-8 lg:grid-cols-3 lg:gap-8">
-        <div className='border border-khaki p-5 shadow-xl'>
-          <img
-            className="object-cover w-full h-56 mb-6 rounded shadow-lg md:h-64 xl:h-80"
-            src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
-            alt=""
-          />
-          <p className="mb-2 text-xl font-bold leading-none sm:text-2xl">
-            Galaxies Orion
-          </p>
-          <p className="text-gray-700">
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-            accusantium.
-          </p>
-        </div>
+        {
+          services.map(service=><ServiceCard key={service._id} service={service}/>)
+        }
+        
         </div>
             
         </section>

@@ -17,8 +17,8 @@ const Navbar = () => {
         {({ isActive }) => (
           <li
             className={`${
-              isActive ? "text-khaki" : "text-white"
-            } px-3 py-2 mx-6 list-none lg:mr-2 mt-2 font-bold transition-colors duration-300 transform hover:text-khaki lg:mt-0`}
+              isActive ? " bg-slate-200 bg-opacity-20 border border-khaki border-opacity-100" : ""
+            } text-white px-3 py-1 mx-6 list-none lg:mr-2 mt-2 font-bold transition-colors duration-300 transform hover:bg-slate-200 hover:bg-opacity-20 border border-opacity-0 hover:border-opacity-100 border-khaki lg:mt-0`}
           >
             Home
           </li>
@@ -27,9 +27,9 @@ const Navbar = () => {
       <NavLink to="/about">
         {({ isActive }) => (
           <li
-            className={`${
-              isActive ? "text-khaki" : "text-white"
-            } px-3 py-2 mx-6 list-none lg:mr-2 mt-2 font-bold transition-colors duration-300 transform hover:text-khaki lg:mt-0`}
+          className={`${
+            isActive ? " bg-slate-200 bg-opacity-20 border border-khaki" : ""
+          } text-white px-3 py-1 mx-6 list-none lg:mr-2 mt-2 font-bold transition-colors duration-300 transform hover:bg-slate-200 hover:bg-opacity-20 border border-opacity-0 hover:border-opacity-100 border-khaki lg:mt-0`}
           >
             About
           </li>
@@ -38,9 +38,9 @@ const Navbar = () => {
       <NavLink to="/services">
         {({ isActive }) => (
           <li
-            className={`${
-              isActive ? "text-khaki" : "text-white"
-            } px-3 py-2 mx-6 list-none lg:mr-2 mt-2 font-bold transition-colors duration-300 transform hover:text-khaki lg:mt-0`}
+          className={`${
+            isActive ? " bg-slate-200 bg-opacity-20 border border-khaki" : ""
+          } text-white px-3 py-1 mx-6 list-none lg:mr-2 mt-2 font-bold transition-colors duration-300 transform hover:bg-slate-200 hover:bg-opacity-20 border border-opacity-0 hover:border-opacity-100 border-khaki lg:mt-0`}
           >
             Services
           </li>
@@ -49,9 +49,9 @@ const Navbar = () => {
       <NavLink to="/blog">
         {({ isActive }) => (
           <li
-            className={`${
-              isActive ? "text-khaki" : "text-white"
-            } px-3 py-2 mx-6 list-none lg:mr-2 mt-2 font-bold transition-colors duration-300 transform hover:text-khaki lg:mt-0`}
+          className={`${
+            isActive ? " bg-slate-200 bg-opacity-20 border border-khaki" : ""
+          } text-white px-3 py-1 mx-6 list-none lg:mr-2 mt-2 font-bold transition-colors duration-300 transform hover:bg-slate-200 hover:bg-opacity-20 border border-opacity-0 hover:border-opacity-100 border-khaki lg:mt-0`}
           >
             Blog
           </li>

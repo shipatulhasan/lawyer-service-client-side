@@ -5,6 +5,7 @@ import Loign from "../pages/Forms/Loign";
 import ResetPass from "../pages/Forms/ResetPass";
 import SignUp from "../pages/Forms/SignUp";
 import Home from "../pages/Home/Home";
+import SingleService from "../pages/SingleService/SingleService";
 
 export const router = createBrowserRouter([
     {
@@ -19,6 +20,12 @@ export const router = createBrowserRouter([
             {
                 path:'/home',
                 element:<Home />
+            },
+            {
+                path:'/services/:id',
+                loader:({params})=>fetch(`http://localhost:5000/services/${params.id}`),
+                element:<SingleService />
+
             },
             {
                 path:'/signup',
