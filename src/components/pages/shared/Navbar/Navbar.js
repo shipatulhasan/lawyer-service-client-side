@@ -18,7 +18,7 @@ const Navbar = () => {
           <li
             className={`${
               isActive ? "bg-slate-200 bg-opacity-20 border-opacity-100" : 'border-opacity-0'
-            } text-white px-3 py-1 mx-6 list-none lg:mr-2 mt-2 font-bold transition-colors duration-300 transform hover:bg-slate-200 hover:bg-opacity-20 border  hover:border-opacity-100 border-khaki lg:mt-0`}
+            } text-white px-3 py-1  list-none lg:mr-2 mt-2 font-bold transition-colors duration-300 transform hover:bg-slate-200 hover:bg-opacity-20 border  hover:border-opacity-100 border-khaki lg:mt-0`}
           >
             Home
           </li>
@@ -29,7 +29,7 @@ const Navbar = () => {
           <li
           className={`${
             isActive ? " bg-slate-200 bg-opacity-20 border border-khaki" : ""
-          } text-white px-3 py-1 mx-6 list-none lg:mr-2 mt-2 font-bold transition-colors duration-300 transform hover:bg-slate-200 hover:bg-opacity-20 border border-opacity-0 hover:border-opacity-100 border-khaki lg:mt-0`}
+          } text-white px-3 py-1  list-none lg:mr-2 mt-2 font-bold transition-colors duration-300 transform hover:bg-slate-200 hover:bg-opacity-20 border border-opacity-0 hover:border-opacity-100 border-khaki lg:mt-0`}
           >
             About
           </li>
@@ -40,7 +40,7 @@ const Navbar = () => {
           <li
           className={`${
             isActive ? " bg-slate-200 bg-opacity-20 border border-khaki" : ""
-          } text-white px-3 py-1 mx-6 list-none lg:mr-2 mt-2 font-bold transition-colors duration-300 transform hover:bg-slate-200 hover:bg-opacity-20 border border-opacity-0 hover:border-opacity-100 border-khaki lg:mt-0`}
+          } text-white px-3 py-1  list-none lg:mr-2 mt-2 font-bold transition-colors duration-300 transform hover:bg-slate-200 hover:bg-opacity-20 border border-opacity-0 hover:border-opacity-100 border-khaki lg:mt-0`}
           >
             Services
           </li>
@@ -51,12 +51,30 @@ const Navbar = () => {
           <li
           className={`${
             isActive ? " bg-slate-200 bg-opacity-20 border border-khaki" : ""
-          } text-white px-3 py-1 mx-6 list-none lg:mr-2 mt-2 font-bold transition-colors duration-300 transform hover:bg-slate-200 hover:bg-opacity-20 border border-opacity-0 hover:border-opacity-100 border-khaki lg:mt-0`}
+          } text-white px-3 py-1  list-none lg:mr-2 mt-2 font-bold transition-colors duration-300 transform hover:bg-slate-200 hover:bg-opacity-20 border border-opacity-0 hover:border-opacity-100 border-khaki lg:mt-0`}
           >
             Blog
           </li>
         )}
       </NavLink>
+
+      {
+        user && 
+        
+        <NavLink to="/my-reviews" className=''>
+        {({ isActive }) => (
+          <li
+          className={`${
+            isActive ? " bg-slate-200 bg-opacity-20 border border-khaki" : ""
+          } text-white px-3 py-1  list-none lg:mr-2 mt-2 font-bold transition-colors duration-300 transform hover:bg-slate-200 hover:bg-opacity-20 border border-opacity-0 hover:border-opacity-100 border-khaki lg:mt-0`}
+          >
+          Reviews
+          </li>
+        )}
+      </NavLink>
+        
+        
+      }
     </>
   );
 
@@ -125,7 +143,7 @@ const Navbar = () => {
                 : "opacity-0 -translate-x-full"
             } absolute inset-x-0 z-20 w-full px-6 py-4 transition-all duration-300 ease-in-out bg-black dark:bg-black lg:mt-0 lg:p-0 lg:top-0 lg:relative lg:bg-transparent lg:w-auto lg:opacity-100 lg:translate-x-0 lg:flex lg:items-center`}
           >
-            <div className="flex flex-col -mx-3 md:mx-0 md:px-6 lg:flex-row lg:items-center lg:mx-10">
+            <div className="flex flex-col - md:mx-0 md:px-6 lg:flex-row lg:items-center lg:mx-10">
               {menuList}
             </div>
 

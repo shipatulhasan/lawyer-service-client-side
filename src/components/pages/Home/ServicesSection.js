@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import ServiceCard from '../shared/ServiceCard';
 
 const ServicesSection = () => {
@@ -36,6 +37,15 @@ const ServicesSection = () => {
         }
         
         </div>
+      <div className='text-center '>
+        <button className='mt-6'>
+        <Link to='/services'
+                 className='border border-khaki px-8 py-2 text-white font-bold tracking-widest uppercase text-xs bg-black  hover:bg-khaki '>
+                    view all services
+                </Link>
+        </button>
+     
+      </div>
             
         </section>
     );

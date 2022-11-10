@@ -1,18 +1,18 @@
 import React, { useEffect, useState, useContext } from 'react';
 import PageHeader from './shared/PageHeader'
 import img from '../../asset/banner/services.jpg'
-import loader from '../../asset/counter/loader.svg'
+
 import ServiceCard from './shared/ServiceCard'
 import { AuthContext } from '../AuthProvider/AuthProvider';
+import Loader from './shared/Loader';
 
 const Services = () => {
 
     const [services,setServices] = useState([])
     const {isLoading,setLoading} = useContext(AuthContext)
 
+    
     useEffect(()=>{
-        setLoading(true)
-
         fetch(`http://localhost:5000/services`)
         .then(res=>res.json())
         .then(data=>{
@@ -34,9 +34,7 @@ const Services = () => {
             <div className="px-6 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-8">
 
                 {
-                    isLoading && <div className='min-h-[300px] flex items-center justify-center'>
-                        <img className='w-20 mx-auto' src={loader} alt="" />
-                    </div>
+                    isLoading && <Loader />
                 }
 
             <div className="grid  mb-8 lg:grid-cols-3 gap-8">

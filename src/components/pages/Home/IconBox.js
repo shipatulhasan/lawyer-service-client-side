@@ -8,16 +8,19 @@ const IconBox = () => {
     const boxes = [
         {
             img:img1,
+            id:11202,
             title:`Professinal Service`,
             text:`Mr. Jhon metha has been practicing law since 1967. He is listed in Best Lawyers in America and has an AV rating with the Bar Registry of Preeminent Lawyers. So you will the best services for sure. `
         },
         {
             img:img2,
+            id:11302,
             title:`Quick & Positive Result`,
             text:`We provided quick services based on cases. Our customer is our first priority. We try to solve the case as early as possible and bring the desire result`
         },
         {
             img:img3,
+            id:11402,
             title:`Top Legal Expert`,
             text:`Mr.Jhon metha is One of the top leagal expert on family law. He handle more than 200 cases and the success rate is 90%.`
         },
@@ -28,7 +31,7 @@ const IconBox = () => {
             
             <div className="grid  gap-8 md:grid-cols-3">
                 {
-                    boxes.map((box,i)=><div key={i} className={`flex items-start px-5  ${i===boxes.length-1?'md:border-none':'md:border-r'} border-khaki`}>
+                    boxes.map((box,i)=><div key={box.id} className={`flex items-start px-5  ${i===boxes.length-1?'md:border-none':'md:border-r'} border-khaki`}>
                     <img
                       className="h-10 mr-4  shadow"
                       src={box.img}

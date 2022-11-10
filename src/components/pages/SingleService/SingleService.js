@@ -8,7 +8,7 @@ import Sidebar from './Sidebar';
 
 const SingleService = () => {
 
-    const service = useLoaderData()
+    const service = useLoaderData({})
     const services = useContext(ServicesContext)
     
     const {user} = useContext(AuthContext)

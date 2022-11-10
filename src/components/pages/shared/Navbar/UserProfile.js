@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import {  MdOutlineLogout } from "react-icons/md";
-import { FaRegUser, FaUser } from "react-icons/fa";
+import { FaRegUser, FaUser, FaSignOutAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
 
@@ -75,7 +74,7 @@ const UserProfile = ({ user, logOut }) => {
             onClick={handlelogOut}
             className="flex items-center p-3 text-sm text-gray-600 capitalize transition-colors duration-300 hover:cursor-pointer transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"
           >
-            <MdOutlineLogout />
+            <FaSignOutAlt />
             <span className="mx-1">Sign Out</span>
           </Link>
         </div>

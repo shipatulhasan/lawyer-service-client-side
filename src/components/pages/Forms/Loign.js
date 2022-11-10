@@ -4,13 +4,17 @@ import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import banner from "../../../asset/banner/inner_background_01.jpg";
 import hero from "../../../asset/banner/hero_banner.jpg";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Loign = () => {
   const { signInWithGoogle, signIn } = useContext(AuthContext);
   const [isOpen, setIsOpen] = useState(false);
 
   const [error, setError] = useState("");
+  
+  const navigate = useNavigate();
+  const location = useLocation();
+  let from =  location.state?.from?.pathname || "/" 
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -28,6 +32,7 @@ const Loign = () => {
         toast.success("Successfully logged in");
         form.reset();
         setError("");
+        navigate(from, { replace: true })
       })
       .catch((err) => {
         const firebaseError = err.message;
@@ -42,7 +47,7 @@ const Loign = () => {
         console.log(result.user);
         toast.success("Successfully Registered");
         
-        // navigate('/')
+        navigate(from, { replace: true })
       })
       .catch((err) => {
         const firebaseError = err.message;
