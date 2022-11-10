@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa';
+import {Helmet} from 'react-helmet-async'
 import { Link, useNavigate } from 'react-router-dom';
 import banner from '../../../asset/banner/inner_background_01.jpg'
 import hero from '../../../asset/banner/hero_banner.jpg'
@@ -80,6 +81,9 @@ const SignUp = () => {
 
 
     return (
+      <div><Helmet>
+      <title>Sign Up-Family Law Attorney</title>
+      </Helmet>
         <div className="py-20 flex flex-col justify-center min-h-screen bg-no-repeat bg-cover" style={{backgroundImage:`url(${hero})`}}>
         <div className="grid lg:grid-cols-2 justify-items-center lg:justify-items-end ">
 
@@ -209,6 +213,7 @@ const SignUp = () => {
   
           
         </div>
+      </div>
       </div>
     );
 };

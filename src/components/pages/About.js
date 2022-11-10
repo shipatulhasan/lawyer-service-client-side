@@ -12,8 +12,14 @@ const About = () => {
     return (
         <div>
             <PageHeader headerInfo={headerInfo} />
+            <div className='py-10'>
+
             <AboutSection />
+            </div>
+            <div className=' pb-24'>
+
             <Statistics />
+            </div>
         </div>
     );
 };

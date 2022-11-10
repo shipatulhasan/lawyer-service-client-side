@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import toast from "react-hot-toast";
+import {Helmet} from 'react-helmet-async'
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import banner from "../../../asset/banner/inner_background_01.jpg";
@@ -40,7 +41,7 @@ const Loign = () => {
 
         // jwt verification
 
-        fetch('http://localhost:5000/jwt',{
+        fetch('https://lawyer-server-omega.vercel.app/jwt',{
           method:'post',
           headers:{
             'content-type':'application/json',
@@ -76,6 +77,10 @@ const Loign = () => {
       });
   };
   return (
+    <div>
+       <Helmet>
+          <title>Login-Family Law Attorney</title>
+          </Helmet>
     <div
       className="py-20 flex flex-col justify-center min-h-screen bg-no-repeat bg-cover"
       style={{ backgroundImage: `url(${hero})` }}
@@ -188,6 +193,7 @@ const Loign = () => {
 
         {/* form */}
       </div>
+    </div>
     </div>
   );
 };

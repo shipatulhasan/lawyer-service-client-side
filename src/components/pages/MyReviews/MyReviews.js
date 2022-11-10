@@ -6,6 +6,7 @@ import PageHeader from "../shared/PageHeader";
 import TableRows from "./TableRows";
 import img from '../../../asset/banner/reviews.png'
 import toast from "react-hot-toast";
+import {Helmet} from 'react-helmet-async'
 
 
 const MyReviews = () => {
@@ -15,7 +16,7 @@ const MyReviews = () => {
   const services = useContext(ServicesContext);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/review?email=${user?.email}`,{
+    fetch(`https://lawyer-server-omega.vercel.app/review?email=${user?.email}`,{
       headers:{
         authorization:`Bearar ${localStorage.getItem('my_token')}`
       }
@@ -32,7 +33,7 @@ const MyReviews = () => {
         setReviews(data)
        
       });
-  }, [user?.email,update]);
+  }, [user?.email,update,logOut]);
 
   const handleDelete = (id)=>{
     
@@ -40,7 +41,7 @@ const MyReviews = () => {
 
     if(proceed){
 
-      fetch(`http://localhost:5000/review/${id}`,{
+      fetch(`https://lawyer-server-omega.vercel.app/review/${id}`,{
         method:'delete',
         headers:{
           'content-type':'application/json'
@@ -62,7 +63,7 @@ const MyReviews = () => {
     event.preventDefault()
    const comment = (event.target.review.value)
 
-    fetch(`http://localhost:5000/review/${_id}`,{
+    fetch(`https://lawyer-server-omega.vercel.app/review/${_id}`,{
             method:'put',
             headers:{
                 'content-type':'application/json'
@@ -91,6 +92,9 @@ const MyReviews = () => {
 
   return (
     <section>
+       <Helmet>
+          <title>My Review-Family Law Attorney</title>
+          </Helmet>
         <PageHeader headerInfo={headerInfo} />
       <div className="container py-10 mx-auto dark:text-gray-100">
         <div className="overflow-x-auto">

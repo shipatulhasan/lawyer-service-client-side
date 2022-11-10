@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import ReviewForm from '../shared/Reviews/ReviewForm'
 import Reviews from '../shared/Reviews/Reviews';
 
@@ -10,9 +10,11 @@ const ServiceDetails = ({service,user}) => {
     const [update,setUpdate] = useState(false)
     const [reviews,setReviews] = useState([])
 
+    const location = useLocation()
+
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/review/${_id}`)
+        fetch(`https://lawyer-server-omega.vercel.app/review/${_id}`)
         .then(res=>res.json())
         .then(data=>{
             setReviews(data)
@@ -39,7 +41,7 @@ const ServiceDetails = ({service,user}) => {
         
         // review post
 
-        fetch('http://localhost:5000/review',{
+        fetch('https://lawyer-server-omega.vercel.app/review',{
             method:'post',
             headers:{
                 'content-type':'application/json'
@@ -86,7 +88,7 @@ const ServiceDetails = ({service,user}) => {
                     :
                     <div className='flex items-center justify-between p-4 dark:text-white  bg-slate-200 bg-opacity-25 border-t-2 border-khaki'>
                         <p>Please sign in to write a review</p>
-                        <Link to='/login'
+                        <Link to="/login" state={{ from: location }} replace 
                          className='border-2 border-khaki px-8 py-2 text-white font-bold tracking-widest uppercase text-xs  bg-black  hover:bg-khaki '>
                     Sign in
                 </Link>

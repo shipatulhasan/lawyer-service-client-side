@@ -17,7 +17,7 @@ export const router = createBrowserRouter([
         path:'/',
         element:<Main />,
         errorElement:<ErrorPage />,
-        loader:()=>fetch('http://localhost:5000/services'),
+        loader:()=>fetch('https://lawyer-server-omega.vercel.app/services'),
         children:[
             {
                 path:'/',
@@ -41,7 +41,7 @@ export const router = createBrowserRouter([
             },
             {
                 path:'/services/:id',
-                loader:({params})=>fetch(`http://localhost:5000/service/${params.id}`),
+                loader:({params})=>fetch(`https://lawyer-server-omega.vercel.app/service/${params.id}`),
                 element:<SingleService />
 
             },
