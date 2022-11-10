@@ -65,8 +65,26 @@ const Loign = () => {
   const handleGoogleSignUp = () => {
     signInWithGoogle()
       .then((result) => {
-        console.log(result.user);
+        const user =result.user;
         toast.success("Successfully Registered");
+
+        const currentUser = {
+          email:user.email
+        }
+        // jwt verification
+
+        fetch('https://lawyer-server-omega.vercel.app/jwt',{
+          method:'post',
+          headers:{
+            'content-type':'application/json',
+          },
+          body:JSON.stringify({currentUser})
+        })
+        .then(res=>res.json())
+        .then(data=>{
+          navigate(from, { replace: true })
+          localStorage.setItem('my_token',data.token)
+        })
         
         navigate(from, { replace: true })
       })

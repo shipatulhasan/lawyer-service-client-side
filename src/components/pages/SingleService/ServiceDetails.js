@@ -5,7 +5,7 @@ import Reviews from '../shared/Reviews/Reviews';
 
 const ServiceDetails = ({service,user}) => {
 
-    const {_id,title,description ,topics ,breffing} = service
+    const {_id,title,description ,headline ,details} = service
     
     const [update,setUpdate] = useState(false)
     const [reviews,setReviews] = useState([])
@@ -70,10 +70,10 @@ const ServiceDetails = ({service,user}) => {
             
             <div className='py-5 '>
             <h2 className='  mb-4 md:mb-3 text-2xl leading-tight font-bold tracking-wide text-black dark:text-white'>
-                {topics}
+                {headline}
             </h2>
             <p className='text-lg dark:text-white'>
-                {breffing}
+                {details}
             </p>
             </div>
 
