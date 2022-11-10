@@ -10,11 +10,12 @@ import Loader from './shared/Loader';
 const Services = () => {
 
     const [services,setServices] = useState([])
-    const {isLoading,setLoading} = useContext(AuthContext)
+    const [isLoading,setLoading] = useState(true)
    
 
     
     useEffect(()=>{
+        
         fetch(`https://lawyer-server-omega.vercel.app/services`)
         .then(res=>res.json())
         .then(data=>{

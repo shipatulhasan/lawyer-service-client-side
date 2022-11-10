@@ -9,7 +9,7 @@ const ServiceForm = ({serviceInfo}) => {
         e.preventDefault()
         console.log(service)
 
-        fetch('http://localhost:5000/service',{
+        fetch('https://lawyer-server-omega.vercel.app/service',{
             method:'post',
             headers:{
                 'content-type':'application/json'
@@ -30,7 +30,6 @@ const ServiceForm = ({serviceInfo}) => {
         newService[field] = value
         setService(newService)
       
-        console.log()
     }
 
 

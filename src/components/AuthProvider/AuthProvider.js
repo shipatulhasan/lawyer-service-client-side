@@ -11,7 +11,7 @@ const AuthProvider = ({children}) => {
 
     const [user, setUser] = useState({})
     const [isLoading, setLoading] = useState(true)
-    const [update,setUpdate] = useState(false)
+    // const [update,setUpdate] = useState(false)
 
     // google signup
 
@@ -66,14 +66,14 @@ const AuthProvider = ({children}) => {
      const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
 
           setUser(currentUser)
-          setUpdate(!update)
+          
           setLoading(false)
           });
 
           return()=>{
               unsubscribe()
           }
-    }, [update])
+    }, [])
 
     
 

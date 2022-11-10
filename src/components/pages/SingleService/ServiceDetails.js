@@ -36,7 +36,7 @@ const ServiceDetails = ({service,user}) => {
             user:user?.displayName,
             email:user?.email,
             img:user?.photoURL,
-            date:commentTime,
+            date:commentTime
         }
         
         // review post
