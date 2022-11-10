@@ -17,8 +17,9 @@ const SingleService = () => {
 
         <section>
             <PageHeader headerInfo={service} />
-            <div className='grid grid-cols-1 md:grid-cols-4 gap-4 py-10'>
+            <div className='grid grid-cols-1 md:grid-cols-4 space-y-5 md:gap-4 py-10'>
                 <ServiceDetails service={service} user={user} />
+                
                 <Sidebar services={services} />
             </div>
         </section>

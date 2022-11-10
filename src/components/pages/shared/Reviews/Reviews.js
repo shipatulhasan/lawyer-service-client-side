@@ -30,7 +30,7 @@ const Reviews = ({review, index}) => {
         <p className="text-sm tracking-wide text-gray-800">
               {comment}
             </p>
-            <p className='py-5 flex text-khakis'>
+            <p className='py-5 flex text-khaki'>
               <FaStar />
               <FaStar />
               <FaStar />

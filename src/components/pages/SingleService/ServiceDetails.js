@@ -57,9 +57,9 @@ const ServiceDetails = ({service,user}) => {
 
     
     return (
-        <div className='col-span-3  sm:max-w-xl md:max-w-full lg:max-w-screen-xl lg:px-16'>
+        <div className='col-span-3 sm:max-w-xl md:max-w-full lg:max-w-screen-xl lg:px-16'>
 
-           <div className='pb-5'>
+           <div className='pb-5 px-5'>
            <h2 className='font-crimson max-w-2xl mb-2 md:mb-3 text-5xl leading-tight font-bold tracking-wide text-black md:text-6xl md:leading-tight capitalize dark:text-white'>
                 {title}
             </h2>
@@ -68,7 +68,7 @@ const ServiceDetails = ({service,user}) => {
             </p>
            </div>
             
-            <div className='py-5 '>
+            <div className='py-5 px-5'>
             <h2 className='  mb-4 md:mb-3 text-2xl leading-tight font-bold tracking-wide text-black dark:text-white'>
                 {headline}
             </h2>
@@ -86,7 +86,7 @@ const ServiceDetails = ({service,user}) => {
                     user ? 
                     <ReviewForm handleSubmit={handleSubmit} /> 
                     :
-                    <div className='flex items-center justify-between p-4 dark:text-white  bg-slate-200 bg-opacity-25 border-t-2 border-khaki'>
+                    <div className='flex items-center gap-1 justify-between p-4 dark:text-white  bg-slate-200 bg-opacity-25 border-t-2 border-khaki'>
                         <p>Please sign in to write a review</p>
                         <Link to="/login" state={{ from: location }} replace 
                          className='border-2 border-khaki px-8 py-2 text-white font-bold tracking-widest uppercase text-xs  bg-black  hover:bg-khaki '>

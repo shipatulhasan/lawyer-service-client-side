@@ -3,7 +3,6 @@ import PageHeader from './shared/PageHeader'
 import img from '../../asset/banner/services.jpg'
 import {Helmet} from 'react-helmet-async'
 import ServiceCard from './shared/ServiceCard'
-import { AuthContext } from '../AuthProvider/AuthProvider';
 import Loader from './shared/Loader';
 
 

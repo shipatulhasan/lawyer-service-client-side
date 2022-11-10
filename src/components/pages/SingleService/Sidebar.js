@@ -6,7 +6,7 @@ const Sidebar = ({services}) => {
 
 
     return (
-        <div className=" w-64 h-[23.2rem] border border-khaki  overflow-hidden bg-center bg-no-repeat bg-cover shadow-2xl shadow-slate-200 " style={{ backgroundImage: `url(${img})`,backgroundColor:'rgb(0 0 0 / 35%)',backgroundBlendMode:'overlay' }}>
+        <div className=" mx-auto w-11/12 md:w-64 h-[23.2rem] border border-khaki  overflow-hidden bg-center bg-no-repeat bg-cover shadow-2xl shadow-slate-200 " style={{ backgroundImage: `url(${img})`,backgroundColor:'rgb(0 0 0 / 35%)',backgroundBlendMode:'overlay' }}>
             <h2 className='text-slate-200 font-crimson p-5 text-3xl '>
                 All Services
             </h2>
