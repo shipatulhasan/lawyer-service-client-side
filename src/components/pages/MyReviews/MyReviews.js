@@ -126,7 +126,7 @@ const MyReviews = () => {
             </tbody>
           </table>
           {
-            reviews.length===0 && <h2 className="text-khaki text-center py-10 text-2xl font-bold">No review found</h2>
+            reviews.length===0 && <h2 className="text-khaki text-center py-10 text-2xl font-bold">No reviews were added</h2>
           }
         </div>
       </div>
