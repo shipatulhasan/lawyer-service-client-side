@@ -51,6 +51,7 @@ const MyReviews = () => {
       .then(res=>res.json())
       .then(data=>{
         console.log(data)
+        toast.success('Deleted successfully')
         setUpdate(!update)
       })
 
@@ -99,6 +100,7 @@ const MyReviews = () => {
         <PageHeader headerInfo={headerInfo} />
       <div className="container py-10 mx-auto dark:text-gray-100">
         <div className="overflow-x-auto">
+        
           <table className="min-w-full border">
             <thead className="dark:bg-gray-700 bg-khaki text-white">
               <tr className="text-left">
@@ -123,6 +125,9 @@ const MyReviews = () => {
               ))}
             </tbody>
           </table>
+          {
+            reviews.length===0 && <h2 className="text-khaki text-center py-10 text-2xl font-bold">No review found</h2>
+          }
         </div>
       </div>
     </section>
