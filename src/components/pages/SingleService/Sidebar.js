@@ -12,7 +12,7 @@ const Sidebar = ({services}) => {
             </h2>
 
             {
-                services.map((service,i)=> <NavLink key={service._id} to={`/service-details/${service._id}`}>
+                services.map((service,i)=> <NavLink key={service._id} to={`/services/${service._id}`}>
                 {({ isActive }) => (
                   <li
                     className={`${

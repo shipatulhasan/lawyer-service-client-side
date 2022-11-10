@@ -1,18 +1,12 @@
 import React, { useState } from "react";
 import { FaRegUser, FaUser, FaSignOutAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import toast from "react-hot-toast";
 
-const UserProfile = ({ user, logOut }) => {
+
+const UserProfile = ({ user, handlelogOut }) => {
   const [isClicked, setIsClicked] = useState(false);
 
-  const handlelogOut = () => {
-    logOut()
-      .then(() => {
-        toast.success("logged out");
-      })
-      .catch((err) => console.error(err));
-  };
+
 
   return (
     <div className="relative ">

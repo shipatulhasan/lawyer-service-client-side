@@ -1,6 +1,7 @@
 import React from 'react';
 import { createContext } from 'react';
 import { Outlet, useLoaderData } from 'react-router-dom';
+import Footer from '../components/pages/shared/Footer';
 import Navbar from '../components/pages/shared/Navbar/Navbar';
 
 export const ServicesContext = createContext()
@@ -14,6 +15,7 @@ const Main = () => {
         <ServicesContext.Provider value={services}>
             <Navbar />
             <Outlet />
+            <Footer />
         </ServicesContext.Provider>
     );
 };

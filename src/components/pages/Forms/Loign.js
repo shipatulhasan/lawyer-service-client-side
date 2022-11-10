@@ -14,6 +14,7 @@ const Loign = () => {
   
   const navigate = useNavigate();
   const location = useLocation();
+  
   let from =  location.state?.from?.pathname || "/" 
 
   const handleSubmit = (e) => {
@@ -32,7 +33,26 @@ const Loign = () => {
         toast.success("Successfully logged in");
         form.reset();
         setError("");
-        navigate(from, { replace: true })
+
+        const currentUser = {
+          email:user.email
+        }
+
+        // jwt verification
+
+        fetch('http://localhost:5000/jwt',{
+          method:'post',
+          headers:{
+            'content-type':'application/json',
+          },
+          body:JSON.stringify({currentUser})
+        })
+        .then(res=>res.json())
+        .then(data=>{
+          navigate(from, { replace: true })
+          localStorage.setItem('my_token',data.token)
+        })
+ 
       })
       .catch((err) => {
         const firebaseError = err.message;

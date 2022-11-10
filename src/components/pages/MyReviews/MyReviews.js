@@ -11,12 +11,23 @@ import toast from "react-hot-toast";
 const MyReviews = () => {
   const [reviews, setReviews] = useState([]);
   const [update,setUpdate] = useState(false)
-  const { user} = useContext(AuthContext);
+  const { user, logOut} = useContext(AuthContext);
   const services = useContext(ServicesContext);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/review?email=${user?.email}`)
-      .then((res) => res.json())
+    fetch(`http://localhost:5000/review?email=${user?.email}`,{
+      headers:{
+        authorization:`Bearar ${localStorage.getItem('my_token')}`
+      }
+    })
+      .then((res) => {
+        if(res.status === 401 || res.status === 403){
+          return logOut()
+            .then(() => { })
+            .catch((err) => console.error(err));
+        }
+        return res.json()
+      })
       .then((data) => {
         setReviews(data)
        
@@ -67,7 +78,7 @@ const MyReviews = () => {
 
             }
             
-            console.log(data)
+            
         })
   }
 

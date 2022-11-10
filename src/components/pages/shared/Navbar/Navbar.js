@@ -5,11 +5,21 @@ import { Link, NavLink } from "react-router-dom";
 import brand from "../../../../asset/brand/logo.png";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
 import UserProfile from "./UserProfile";
+import toast from "react-hot-toast";
 
 const Navbar = () => {
   const [isOpen, setOpen] = useState(false);
 
   const { user, logOut } = useContext(AuthContext);
+
+
+  const handlelogOut = () => {
+    logOut()
+      .then(() => {
+        toast.success("logged out");
+      })
+      .catch((err) => console.error(err));
+  };
 
   const menuList = (
     <>
@@ -60,20 +70,36 @@ const Navbar = () => {
 
       {
         user && 
-        
+        <>
         <NavLink to="/my-reviews" className=''>
         {({ isActive }) => (
           <li
           className={`${
             isActive ? " bg-slate-200 bg-opacity-20 border border-khaki" : ""
-          } text-white px-3 py-1  list-none lg:mr-2 mt-2 font-bold transition-colors duration-300 transform hover:bg-slate-200 hover:bg-opacity-20 border border-opacity-0 hover:border-opacity-100 border-khaki lg:mt-0`}
+          } text-white px-3 py-1 list-none lg:mr-2 mt-2 font-bold transition-colors duration-300 transform hover:bg-slate-200 hover:bg-opacity-20 border border-opacity-0 hover:border-opacity-100 border-khaki lg:mt-0`}
           >
-          Reviews
+         My Reviews
           </li>
         )}
       </NavLink>
+        <NavLink to="/add-service" className=''>
+        {({ isActive }) => (
+          <li
+          className={`${
+            isActive ? " bg-slate-200 bg-opacity-20 border border-khaki" : ""
+          } text-white px-3 py-1 list-none lg:mr-2 mt-2 font-bold transition-colors duration-300 transform hover:bg-slate-200 hover:bg-opacity-20 border border-opacity-0 hover:border-opacity-100 border-khaki lg:mt-0`}
+          >
+         Add Services
+          </li>
+        )}
+      </NavLink>
+        <li onClick={handlelogOut} className='text-white px-3 py-1 list-none lg:mr-2 mt-2 font-bold transition-colors duration-300 transform hover:bg-slate-200 hover:bg-opacity-20 border border-opacity-0 hover:border-opacity-100 border-khaki lg:mt-0'>
+      
+        Logut
         
+      </li>
         
+      </>
       }
     </>
   );
@@ -83,7 +109,7 @@ const Navbar = () => {
       <div className="container px-6 lg:px-0 mx-auto rounded">
         <div className="lg:flex lg:items-center lg:justify-between">
           <div className="flex items-center justify-between">
-            <div className="text-xl font-semibold text-gray-700">
+            <div className="text-xl font-semibold text-gray-700 ">
               <Link
                 className="text-2xl font-bold text-gray-800 transition-colors duration-300 transform dark:text-white lg:text-3xl hover:text-gray-700 dark:hover:text-gray-300"
                 to="/"
@@ -143,14 +169,14 @@ const Navbar = () => {
                 : "opacity-0 -translate-x-full"
             } absolute inset-x-0 z-20 w-full px-6 py-4 transition-all duration-300 ease-in-out bg-black dark:bg-black lg:mt-0 lg:p-0 lg:top-0 lg:relative lg:bg-transparent lg:w-auto lg:opacity-100 lg:translate-x-0 lg:flex lg:items-center`}
           >
-            <div className="flex flex-col - md:mx-0 md:px-6 lg:flex-row lg:items-center lg:mx-10">
+            <div className="flex flex-col - md:mx-0  lg:flex-row lg:items-center  lg:w-full">
               {menuList}
             </div>
 
-            <div className="flex items-center mt-4 px-0 md:px-10 lg:mt-0">
+            <div className="flex items-center mt-4 px-0  lg:mt-0">
               {user?.uid ? (
                 <div className="flex items-center -ml-1 lg:ml-0">
-                  <UserProfile user={user} logOut ={logOut}  />
+                  <UserProfile user={user} handlelogOut ={handlelogOut}  />
                   <h3 className="mx-2 text-white dark:text-gray-200 lg:hidden">
                     {user?.displayName}
                   </h3>

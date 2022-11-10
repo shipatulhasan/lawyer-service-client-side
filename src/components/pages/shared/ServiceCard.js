@@ -1,5 +1,5 @@
 import React from 'react';
-import { BsArrowRight } from "react-icons/bs";
+import { FaArrowRight } from "react-icons/fa";
 import { PhotoView,PhotoProvider } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
 import { Link } from 'react-router-dom';
@@ -27,8 +27,8 @@ const ServiceCard = ({service}) => {
           </p>
           <div className='flex items-center justify-between mt-3'>
               <p className='text-khaki text-lg'>Price: ${price}</p>
-              <Link to={`/service-details/${_id}`}>
-              <BsArrowRight className='text-xl text-khaki font-normal' />
+              <Link to={`/services/${_id}`}>
+              <FaArrowRight className='text-xl text-khaki font-normal' />
               </Link>
           </div>
         </div>
