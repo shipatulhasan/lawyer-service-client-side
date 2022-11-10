@@ -102,6 +102,9 @@ const ServiceDetails = ({service,user}) => {
 
             <div className='max-w-xl'>
                 {
+                    reviews.length===0 && <h2 className="text-khaki text-center py-10 text-2xl font-bold">No reviews were added yet</h2>
+                }
+                {
                     reviews.map((review,i)=><Reviews key={review._id} review={review} index={i===reviews.length-1} />)
                 }
                 
