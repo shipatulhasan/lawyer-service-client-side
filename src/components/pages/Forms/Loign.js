@@ -6,9 +6,10 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 import banner from "../../../asset/banner/inner_background_01.jpg";
 import hero from "../../../asset/banner/hero_banner.jpg";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import Loader from '../shared/Loader'
 
 const Loign = () => {
-  const { signInWithGoogle, signIn } = useContext(AuthContext);
+  const { signInWithGoogle, signIn, isLoading, setLoading } = useContext(AuthContext);
   const [isOpen, setIsOpen] = useState(false);
 
   const [error, setError] = useState("");
@@ -33,6 +34,7 @@ const Loign = () => {
         const user = result.user
         toast.success("Successfully logged in");
         form.reset();
+        
         setError("");
 
         const currentUser = {
@@ -46,10 +48,11 @@ const Loign = () => {
           headers:{
             'content-type':'application/json',
           },
-          body:JSON.stringify({currentUser})
+          body:JSON.stringify(currentUser)
         })
         .then(res=>res.json())
         .then(data=>{
+          setLoading(false)
           navigate(from, { replace: true })
           localStorage.setItem('my_token',data.token)
         })
@@ -66,7 +69,7 @@ const Loign = () => {
     signInWithGoogle()
       .then((result) => {
         const user =result.user;
-        toast.success("Successfully Registered");
+        toast.success("Successfully Loggedin");
 
         const currentUser = {
           email:user.email
@@ -78,15 +81,15 @@ const Loign = () => {
           headers:{
             'content-type':'application/json',
           },
-          body:JSON.stringify({currentUser})
+          body:JSON.stringify(currentUser)
         })
         .then(res=>res.json())
         .then(data=>{
+          setLoading(false)
           navigate(from, { replace: true })
           localStorage.setItem('my_token',data.token)
         })
         
-        navigate(from, { replace: true })
       })
       .catch((err) => {
         const firebaseError = err.message;
@@ -100,9 +103,12 @@ const Loign = () => {
           <title>Login-Family Law Attorney</title>
           </Helmet>
     <div
-      className="py-20 flex flex-col justify-center min-h-screen bg-no-repeat bg-cover"
+      className="relative py-20 flex flex-col justify-center min-h-screen bg-no-repeat bg-cover"
       style={{ backgroundImage: `url(${hero})` }}
     >
+      {
+        isLoading && <div className="fixed flex items-center top-0 left-0 h-full w-full bg-slate-100 bg-opacity-25 z-10"><Loader /></div>
+      }
       <div className="grid lg:grid-cols-2 justify-items-center lg:justify-items-end ">
         {/* form */}
 

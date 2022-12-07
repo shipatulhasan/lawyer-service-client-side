@@ -1,5 +1,5 @@
 import React from 'react';
-import preview from '../../../asset/banner/services.jpg'
+import preview from '../../../../../asset/banner/service_banner.jpg'
 
 const Preview = ({service}) => {
     const {img,title,description,headline,details} = service

@@ -6,13 +6,14 @@ const TableRows = ({review,services,handleDelete,handleUpdate}) => {
 
 	const {_id, service_id, date, comment} = review
 
-	const service = services.find(srvc => srvc._id === service_id)
+	const service = services?.find(srvc => srvc._id === service_id)
+	console.log(service)
 
 
     return (
         <tr className="border-b border-opacity-20 dark:border-gray-700 dark:bg-gray-900">
 					<td className="p-3">
-						<p>{service.title}</p>
+						<p>{service?.title}</p>
 					</td>
 					<td className="p-3">
 						<p>{comment}</p>

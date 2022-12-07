@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
-import { ServicesContext } from '../../../layouts/Main';
+import { ServicesContext } from '../../../components/ServiceProvider/ServiceProvider';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import PageHeader from '../shared/PageHeader';
 import ServiceDetails from './ServiceDetails';
@@ -9,7 +9,7 @@ import Sidebar from './Sidebar';
 const SingleService = () => {
 
     const service = useLoaderData({})
-    const services = useContext(ServicesContext)
+    const {services} = useContext(ServicesContext)
     
     const {user} = useContext(AuthContext)
 

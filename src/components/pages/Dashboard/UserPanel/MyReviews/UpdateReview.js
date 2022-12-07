@@ -12,7 +12,7 @@ const UpdateReview = ({ review, handleUpdate }) => {
 
   return (
     <div>
-      <div className="relative flex justify-center">
+      <div className="relative flex justify-center ">
         <FaRegEdit
           onClick={() => setIsopen(true)}
           className="hover:cursor-pointer"
@@ -20,7 +20,7 @@ const UpdateReview = ({ review, handleUpdate }) => {
 
         {isOpen && (
           <div
-            className="fixed inset-0 z-10 overflow-y-auto"
+            className="fixed inset-0 z-10 overflow-y-auto bg-gray-800/50"
             aria-labelledby="modal-title"
             role="dialog"
             aria-modal="true"
@@ -41,7 +41,7 @@ const UpdateReview = ({ review, handleUpdate }) => {
                   </div>
 
                   <div className="mt-2 text-center">
-                    <form onSubmit={(event)=>handleUpdate(event,_id)}>
+                    <form onSubmit={(event)=>handleUpdate(event,_id,setIsopen)}>
                       <div className="border border-khaki shadow-2xl shadow-slate-200">
                         <textarea
                           className="p-5 w-full dark:text-white focus:outline-none"

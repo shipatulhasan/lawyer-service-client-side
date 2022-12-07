@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FaRegUser, FaUser, FaSignOutAlt } from "react-icons/fa";
+import { MdSpaceDashboard } from "react-icons/md";
 import { Link } from "react-router-dom";
 
 
@@ -53,6 +54,16 @@ const UserProfile = ({ user, handlelogOut }) => {
 
           <hr className="border-gray-200 dark:border-gray-700 " />
 
+          <Link
+            to="/dashboard"
+            className="flex items-center p-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"
+          >
+            <MdSpaceDashboard />
+
+            <span className="mx-1">Dashboard</span>
+          </Link>
+
+          <hr className="border-gray-200 dark:border-gray-700 " />
           <Link
             to="/"
             className="flex items-center p-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"

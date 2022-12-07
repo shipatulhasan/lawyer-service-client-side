@@ -7,7 +7,7 @@ const ServiceForm = ({serviceInfo}) => {
 
     const handleSubmit=(e)=>{
         e.preventDefault()
-        console.log(service)
+       
 
         fetch('https://lawyer-server-omega.vercel.app/service',{
             method:'post',
@@ -19,6 +19,7 @@ const ServiceForm = ({serviceInfo}) => {
         .then(res=>res.json())
         .then(data=>{
             setService(data)
+            e.target.reset()
             toast.success('Service successfully added')
         })
     }

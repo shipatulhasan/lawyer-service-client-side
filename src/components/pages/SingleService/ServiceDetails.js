@@ -8,7 +8,9 @@ const ServiceDetails = ({service,user}) => {
     const {_id,title,description ,headline ,details} = service
     
     const [update,setUpdate] = useState(false)
+    const [isLoading,setIsLoading] = useState(false)
     const [reviews,setReviews] = useState([])
+
 
     const location = useLocation()
 
@@ -19,11 +21,13 @@ const ServiceDetails = ({service,user}) => {
         .then(data=>{
             setReviews(data)
             setUpdate(!update)
+           
         })
 
     }, [update,_id])
 
     const handleSubmit = (e)=>{
+        setIsLoading(true)
         e.preventDefault()
         const form = e.target
         const comment = form.comment.value
@@ -50,7 +54,7 @@ const ServiceDetails = ({service,user}) => {
         })
         .then(res=>res.json())
         .then(data=>{
-            console.log(data)
+            setIsLoading(false)
             form.reset()
         })
     }
@@ -84,7 +88,7 @@ const ServiceDetails = ({service,user}) => {
             <div className='py-5'>
                 {
                     user ? 
-                    <ReviewForm handleSubmit={handleSubmit} /> 
+                    <ReviewForm handleSubmit={handleSubmit} isLoading={isLoading} /> 
                     :
                     <div className='flex items-center gap-1 justify-between p-4 dark:text-white  bg-slate-200 bg-opacity-25 border-t-2 border-khaki'>
                         <p>Please sign in to write a review</p>

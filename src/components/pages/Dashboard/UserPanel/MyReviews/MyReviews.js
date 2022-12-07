@@ -1,19 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { useContext } from "react";
-import { ServicesContext } from "../../../layouts/Main";
-import { AuthContext } from "../../AuthProvider/AuthProvider";
-import PageHeader from "../shared/PageHeader";
+import { ServicesContext } from "../../../../ServiceProvider/ServiceProvider";
+import { AuthContext } from "../../../../AuthProvider/AuthProvider";
+import Loader from '../../../shared/Loader'
+
 import TableRows from "./TableRows";
-import img from '../../../asset/banner/reviews.png'
 import toast from "react-hot-toast";
 import {Helmet} from 'react-helmet-async'
 
 
 const MyReviews = () => {
   const [reviews, setReviews] = useState([]);
+  const [isLoading,setIsloading] = useState(true)
   const [update,setUpdate] = useState(false)
   const { user, logOut} = useContext(AuthContext);
-  const services = useContext(ServicesContext);
+  const {services} = useContext(ServicesContext);
 
 
   useEffect(() => {
@@ -32,9 +33,14 @@ const MyReviews = () => {
       })
       .then((data) => {
         setReviews(data)
+        setIsloading(false)
        
       });
   }, [user?.email,update,logOut]);
+
+  if(isLoading){
+    return <Loader />
+  }
 
   const handleDelete = (id)=>{
     
@@ -60,7 +66,7 @@ const MyReviews = () => {
   
   }
 
-  const handleUpdate = (event,_id)=>{
+  const handleUpdate = (event,_id,setIsopen)=>{
 
     event.preventDefault()
    const comment = (event.target.review.value)
@@ -78,6 +84,7 @@ const MyReviews = () => {
 
                 toast.success('updated successfully')
                 setUpdate(!update)
+                setIsopen(false)
 
             }
             
@@ -85,19 +92,11 @@ const MyReviews = () => {
         })
   }
 
-
-
-  const headerInfo = {
-      title:'My Reviews',
-      img:img
-  }
-
   return (
     <section>
        <Helmet>
           <title>My Review-Family Law Attorney</title>
           </Helmet>
-        <PageHeader headerInfo={headerInfo} />
       <div className="container py-10 mx-auto dark:text-gray-100">
         <div className="overflow-x-auto">
         
