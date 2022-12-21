@@ -4,6 +4,7 @@ import AboutSection from './AboutSection';
 import HomeBanner from './HomeBanner';
 import PartnersSection from './PartnersSection';
 import ServicesSection from './ServicesSection';
+import ReviewSection from './ReviewSection/ReviewSection'
 
 import Statistics from './Statistics';
 
@@ -19,6 +20,10 @@ const Home = () => {
            <AboutSection />
            </div>
            <ServicesSection />
+           <div className='my-10 md:my-16'>
+
+           <ReviewSection />
+           </div>
            <div className='my-10 md:my-16'>
 
            <Statistics />
