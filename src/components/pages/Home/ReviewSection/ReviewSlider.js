@@ -12,8 +12,9 @@ import "./review.css";
 // import required modules
 import {EffectCoverflow, Navigation } from "swiper";
 import Reviews from "../../shared/Reviews/Reviews";
+import SliderSkeleton from "./SliderSkeleton";
 
-function ReviewSlider ({reviews}){
+function ReviewSlider ({reviews,isLoading}){
 return (
   <>
       <Swiper
@@ -50,6 +51,14 @@ return (
         modules={[EffectCoverflow,Navigation]}
         className="mySwiper"
       >
+         
+      {
+        isLoading && Array(3).fill(0).map(i=><SwiperSlide key={i}>
+          <div className=" p-2">
+          <SliderSkeleton/>
+          </div>
+        </SwiperSlide>)
+      }
         {
           reviews.map(review=><SwiperSlide key={review._id}>
             <div className=" p-2">

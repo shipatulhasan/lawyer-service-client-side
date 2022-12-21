@@ -1,8 +1,4 @@
-.swiper {
-    width: 100%;
-    height: 280px;
-    overflow: hidden;
-  }
+
 
 .swiper-slide-next{
     border: 1px solid #8c7156;
@@ -29,7 +25,7 @@
   @media (max-width: 640px){
     .swiper {
         width: 100%;
-        height: 275px;
+        height: 288px;
         overflow: inherit;
       }
     .swiper-slide-active{
@@ -45,5 +41,12 @@
         left: -15px;
         right: auto;
     }
+}
+@media (min-width: 768px){
+    .swiper {
+        width: 100%;
+        height: 280px;
+        overflow: hidden;
+      }
 }
   

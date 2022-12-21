@@ -39,7 +39,7 @@ const ServicesSection = () => {
 
       {/* service boxex */}
       <div>
-      <ReviewSlider reviews={reviews} />
+      <ReviewSlider reviews={reviews} isLoading={isLoading} />
         
         </div>
       <div className='text-center '>
