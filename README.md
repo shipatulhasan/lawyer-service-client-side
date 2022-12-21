@@ -2,6 +2,8 @@
 
 It's an single person service application based on Family Lawyer. By this app A person can decorate his service get the review from his customer. Customer can buy his servicce or contact directly to him. 
 
+Admin access: jhon@gmail.com pass:1234567890
+
 
 ## Live Link
 Hosted in Firebase -> [Family Law Attorney](https://lawyer-be029.web.app/)
