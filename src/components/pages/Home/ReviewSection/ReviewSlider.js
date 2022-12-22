@@ -51,21 +51,29 @@ return (
         modules={[EffectCoverflow,Navigation]}
         className="mySwiper"
       >
-         
-      {
-        isLoading && Array(3).fill(0).map(i=><SwiperSlide key={i}>
-          <div className=" p-2">
-          <SliderSkeleton/>
-          </div>
-        </SwiperSlide>)
-      }
         {
-          reviews.map(review=><SwiperSlide key={review._id}>
-            <div className=" p-2">
-            <Reviews review={review} index={1}/>
-            </div>
-          </SwiperSlide>)
+          isLoading ?
+          <>
+          {
+            Array(3).fill(0).map(( item, i)=><SwiperSlide key={i}>
+              <div className=" p-2">
+              <SliderSkeleton/>
+              </div>
+            </SwiperSlide>)
+          }
+          </>
+          :
+          <>
+          {
+            reviews.map(review=><SwiperSlide key={review._id}>
+              <Reviews review={review} index={1}/>
+             
+            </SwiperSlide>)
+          }
+          </>
         }
+         
+     
         
    
       </Swiper>

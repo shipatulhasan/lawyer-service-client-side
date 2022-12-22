@@ -1,9 +1,9 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState } from 'react';
 import PageHeader from './shared/PageHeader'
 import img from '../../asset/banner/services.jpg'
 import {Helmet} from 'react-helmet-async'
 import ServiceCard from './shared/ServiceCard'
-import Loader from './shared/Loader';
+import CardSkeleton from './shared/CardSkeleton';
 
 
 const Services = () => {
@@ -38,14 +38,13 @@ const Services = () => {
             <PageHeader headerInfo={headerInfo} />
             <div className="px-6 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-8">
 
-                {
-                    isLoading && <Loader />
-                }
-
             <div className="grid  mb-8 lg:grid-cols-3 gap-8">
-        {
-          services.map(service=><ServiceCard key={service._id} service={service}/>)
-        }
+                {
+                    isLoading ? <CardSkeleton card={6} /> : <> {
+                        services.map(service=><ServiceCard key={service._id} service={service}/>)
+                      }</>
+                }
+       
         
         </div>
 

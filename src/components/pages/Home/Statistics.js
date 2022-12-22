@@ -30,7 +30,7 @@ const Statistics = () => {
 
   return (
     
-      <div className="px-4 py-16  mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl  md:px-8 lg:py-20 bg-cover bg-no-repeat  border border-khaki rounded bg-slate-800 shadow-2xl" style={{backgroundImage:`url(${banner})`,backgroundColor:'rgb(0 0 0 / 35%)',backgroundBlendMode:'overlay'}}>
+      <div className="px-4 py-16  mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl bg-  md:px-8 lg:py-20  border border-khaki rounded  shadow-2xl" style={{backgroundImage:`url(${banner})`,backgroundColor:'rgb(0 0 0 / 35%)',backgroundBlendMode:'overlay',backgroundSize:'cover',backgroundRepeat:'no-repeat',backgroundPosition:'center'}}>
       <div className="grid grid-cols-2 gap-8 md:grid-cols-4 ">
         {statistcs.map((stat, i) => <div key={stat.id} className={`text-center text-white z-10 ${i===statistcs.length-1?'md:border-none':'md:border-r'} border-khaki`}>
         

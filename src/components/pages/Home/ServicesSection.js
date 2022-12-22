@@ -1,15 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import CardSkeleton from '../shared/CardSkeleton';
 import ServiceCard from '../shared/ServiceCard';
 
 const ServicesSection = () => {
 
   const [services,setServices] = useState([])
+  const [isLoading,setLoading] = useState(true)
 
   useEffect(()=>{
     fetch(`https://lawyer-server-omega.vercel.app/services?limit=${3}`)
     .then(res=>res.json())
-    .then(data=>setServices(data))
+    .then(data=>{
+      setServices(data)
+      setLoading(false)
+    })
   },[])
 
 
@@ -33,8 +38,12 @@ const ServicesSection = () => {
       {/* service boxex */}
       <div className="grid gap-8 mb-8 lg:grid-cols-3 lg:gap-8">
         {
+          isLoading ? <CardSkeleton card={3}/> : <>
+           {
           services.map(service=><ServiceCard key={service._id} service={service}/>)
+        }</>
         }
+       
         
         </div>
       <div className='text-center '>

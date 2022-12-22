@@ -19,7 +19,7 @@ const ServicesSection = () => {
         setIsloading(false)
        
       });
-  },[]);
+  },[isLoading]);
 
 
 
@@ -38,7 +38,7 @@ const ServicesSection = () => {
         </div>
 
       {/* service boxex */}
-      <div>
+      <div className=''>
       <ReviewSlider reviews={reviews} isLoading={isLoading} />
         
         </div>

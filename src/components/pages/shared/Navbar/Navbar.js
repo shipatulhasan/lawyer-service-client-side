@@ -71,8 +71,8 @@ const Navbar = () => {
   );
 
   return (
-    <nav className="lg:absolute top-0 z-50 w-full bg-black lg:bg-transparent dark:bg-gray-800">
-      <div className="container px-6 lg:px-0 mx-auto rounded">
+    <nav className="lg:absolute  top-0 left-0 z-50 w-full bg-black lg:bg-transparent dark:bg-gray-800">
+      <div className="container px-6 lg:px-0 lg:max-w-screen-xl mx-auto rounded">
         <div className="lg:flex lg:items-center lg:justify-between">
           <div className="flex items-center justify-between">
             <div className="text-xl font-semibold text-gray-700 ">
