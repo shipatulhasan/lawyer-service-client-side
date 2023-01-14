@@ -21,18 +21,23 @@ const ServicesSection = () => {
 
     return (
         <section className="px-6 pb-8 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-8">
-        <div className="mx-auto sm:text-center lg:max-w-2xl">
-        <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
+        <div className="md:flex justify-between items-center pb-5 md:pb-0">
+        <div className="mb-10 lg:max-w-2xl md:mb-12">
           <div>
-          <p className='text-khaki  font-bold tracking-widest '>Services</p>
+          <p className='text-khaki font-bold text-sm tracking-widest '>Field of Expertise</p>
           </div>
-          <h2 className="max-w-xl mb-6 font-crimson text-3xl font-bold md:leading-tight tracking-tight text-black dark:text-white md:text-6xl md:mx-auto">
+          <h2 className="my-2 font-Bellefair font-normal text-3xl tracking-tight text-black dark:text-white md:text-4xl">
             The top most <span className='text-khaki'>popular services</span> in the city 
           </h2>
           <p className="text-base text-black dark:white">
           Mr.Jhon metha is One of the top leagal expert on family law. He handle more than 200 cases and the success rate is 90%. So the services you get from him is top notch.
           </p>
         </div>
+        <div className='inline-block '>
+              <Link to='/services'>
+              <p className='view-button text-lg text-khaki font-semibold uppercase'>view all</p>
+              </Link>
+          </div>
         </div>
 
       {/* service boxex */}
@@ -46,7 +51,7 @@ const ServicesSection = () => {
        
         
         </div>
-      <div className='text-center '>
+      {/* <div className='text-center '>
         <button className='mt-6'>
         <Link to='/services'
                  className='border border-khaki px-8 py-2 text-white font-bold tracking-widest uppercase text-xs bg-black  hover:bg-khaki '>
@@ -54,7 +59,7 @@ const ServicesSection = () => {
                 </Link>
         </button>
      
-      </div>
+      </div> */}
             
         </section>
     );

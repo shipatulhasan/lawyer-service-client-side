@@ -6,8 +6,6 @@ export const useUserData = (role) => {
     const [update,setUpdate] = useState(false)
     useEffect(()=>{
         if(role){
-            
-
             fetch(`${process.env.REACT_APP_api}/user?role=${role}`,{
                 headers:{
                     authorization:`Bearar ${localStorage.getItem('my_token')}`

@@ -14,10 +14,10 @@ const HomeBanner = () => {
             <div className="px-6 md:px-16 lg:px-0 w-full max-w-xl  ">
                 
              
-                <h2 className="max-w-xl mb-4 md:mb-6 text-5xl leading-tight font-bold font-crimson tracking-tight text-white md:text-7xl md:leading-tight capitalize">
+                <h2 className="max-w-xl mb-4 md:mb-6 text-5xl leading-tight  font-Bellefair tracking-tight text-white md:text-7xl md:leading-tight capitalize">
                     Easy & <span className='text-khaki'> quick leagal </span> helps
                 </h2>
-                <p className='text-white text-sm md:text-lg font-semibold mb-6'>
+                <p className='text-white text-sm md:text-lg mb-6'>
                 Law is commonly Understood as a System of  rules that are Created  and Enforeced through social or Government 
                 </p>
                 <Link to='/services'

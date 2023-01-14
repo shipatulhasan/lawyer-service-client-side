@@ -10,7 +10,7 @@ export const userMenu =
           <li
           className={`${
             isActive ? "bg-khaki" : " "
-          } w-full text-white px-3 py-1 mt-3 list-none font-crimson tracking-wide transition-colors duration-300 transform hover:bg-slate-200 hover:bg-opacity-20`}
+          } w-full text-white px-3 py-1 mt-3 list-none font-Bellefair font-normal tracking-wide transition-colors duration-300 transform hover:bg-slate-200 hover:bg-opacity-20`}
           >
                   <div className="flex gap-2 items-center">
                   <MdOutlineReviews className="" />
@@ -28,7 +28,7 @@ export const adminMenu = <>
           <li
           className={`${
             isActive ? "bg-khaki" : " "
-          } w-full text-white px-3 py-1 mt-3 list-none font-crimson tracking-wide transition-colors duration-300 transform hover:bg-slate-200 hover:bg-opacity-20`}
+          } w-full text-white px-3 py-1 mt-3 list-none font-Bellefair font-normal tracking-wide transition-colors duration-300 transform hover:bg-slate-200 hover:bg-opacity-20`}
           >
                   <div className="flex gap-2 items-center">
                   <HiUserGroup className="" />
@@ -43,7 +43,7 @@ export const adminMenu = <>
           <li
             className={`${
               isActive ? "bg-khaki" : " "
-            } w-full text-white px-3 py-1 mt-3 list-none font-crimson tracking-wide transition-colors duration-300 transform hover:bg-slate-200 hover:bg-opacity-20`}
+            } w-full text-white px-3 py-1 mt-3 list-none font-Bellefair font-normal tracking-wide transition-colors duration-300 transform hover:bg-slate-200 hover:bg-opacity-20`}
           >
                   <div className="flex gap-2 items-center">
                   <BsFillCloudPlusFill className="" />
@@ -58,7 +58,7 @@ export const adminMenu = <>
           <li
           className={`${
             isActive ? "bg-khaki" : " "
-          } w-full text-white px-3 py-1 mt-3 list-none font-crimson tracking-wide transition-colors duration-300 transform hover:bg-slate-200 hover:bg-opacity-20`}
+          } w-full text-white px-3 py-1 mt-3 list-none font-Bellefair font-normal tracking-wide transition-colors duration-300 transform hover:bg-slate-200 hover:bg-opacity-20`}
           >
                   <div className="flex gap-2 items-center">
                   <MdOutlineReviews className="" />

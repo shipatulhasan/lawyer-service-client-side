@@ -30,7 +30,7 @@ const ServicesSection = () => {
           <div>
           <p className='text-khaki  font-bold tracking-widest '>Review</p>
           </div>
-          <h2 className="max-w-xl mb-6 font-crimson text-3xl font-bold md:leading-tight tracking-tight text-black dark:text-white md:text-6xl md:mx-auto">
+          <h2 className="max-w-xl mb-6 font-Bellefair font-normal text-3xl md:leading-tight tracking-tight text-black dark:text-white md:text-6xl md:mx-auto">
             Our client's <span className='text-khaki'>review</span> 
           </h2>
         
@@ -42,7 +42,7 @@ const ServicesSection = () => {
       <ReviewSlider reviews={reviews} isLoading={isLoading} />
         
         </div>
-      <div className='text-center '>
+      {/* <div className='text-center '>
         <button className='mt-10'>
         <Link to='/reviews'
                  className='border border-khaki px-8 py-2 text-white font-bold tracking-widest uppercase text-xs bg-black  hover:bg-khaki '>
@@ -50,7 +50,7 @@ const ServicesSection = () => {
                 </Link>
         </button>
      
-      </div>
+      </div> */}
             
         </section>
     );

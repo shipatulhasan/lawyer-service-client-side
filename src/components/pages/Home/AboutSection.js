@@ -14,7 +14,7 @@ const AboutSection = () => {
         </div>
         <div className="lg:w-1/2">
             <p className='text-khaki font-bold tracking-widest'>About Me</p>
-        <h2 className="max-w-xl mb-4 md:mb-6 text-4xl leading-tight font-bold font-crimson tracking-tight text-black dark:text-white md:text-7xl md:leading-tight capitalize">
+        <h2 className="max-w-xl mb-4 md:mb-6 text-4xl leading-tight font-Bellefair font-normal tracking-tight text-black dark:text-white md:text-7xl md:leading-tight capitalize">
                 Jhon<span className='text-khaki'> Metha</span>
                 </h2>
           <p className="text-gray-800 max-w-xl text-base mb-6">

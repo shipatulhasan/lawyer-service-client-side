@@ -1,13 +1,13 @@
-.swiper {
+.mySwiper.swiper{
     width: 100%;
     height: 280px;
   }
-.swiper-slide-next{
+  .mySwiper .swiper-slide-next{
     border: 1px solid #8c7156;
     transform: scale(1.2);
     transition: all .3s linear;
 }
-.swiper-button-next, .swiper-button-prev {
+.mySwiper .swiper-button-next,.mySwiper .swiper-button-prev {
     width: 40px;
     height: 40px;
     border: 1px solid #8c7156;
@@ -15,7 +15,7 @@
     border-radius: 50%;
    
 }
-.swiper-button-next:after, .swiper-button-prev:after {
+.mySwiper .swiper-button-next:after,.mySwiper .swiper-button-prev:after {
     font-size: 16px;
     font-weight: bold;
     color: #8c7156;
@@ -25,26 +25,26 @@
 
   
   @media (max-width: 640px){
-    .swiper {
+    .mySwiper.swiper {
         width: 100%;
         height: 288px;
       }
-    .swiper-slide-active{
+      .mySwiper .swiper-slide-active{
         border: 1px solid #8c7156;
         transform: scale(1.2);
         transition: all .3s linear;
     }
-    .swiper-button-next {
+    .mySwiper .swiper-button-next {
         right: -15px;
         left: auto;
     }
-    .swiper-button-prev{
+    .mySwiper .swiper-button-prev{
         left: -15px;
         right: auto;
     }
 }
 @media (min-width: 768px){
-    .swiper {
+    .mySwiper.swiper {
         width: 100%;
         height: 280px;
       }

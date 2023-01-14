@@ -1,0 +1,54 @@
+.viewCard-button:hover{
+    color: white;
+}
+.viewCard-button{
+    transition:all 0.4s linear ;
+}
+.viewCard-button::before {
+    content: "";
+    height: 1px;
+    background: #8C7156;
+    width: 3.5em;
+    font-size: 1em;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: .8em;
+    -webkit-transform-origin: right;
+    transform-origin: right;
+    z-index: 1;
+    transition: transform .4s ease-in-out;
+}
+.viewCard-button:hover::before {
+    background: #fff;
+    -webkit-transform-origin: right;
+    transform-origin: right;
+    transform: scaleX(0) 
+}
+
+/* view button */
+.view-button:hover{
+    color: #000;
+}
+.view-button{
+    transition:all 0.4s linear ;
+}
+.view-button::before {
+    content: "";
+    height: 1px;
+    background: #8C7156;
+    width: 3.5em;
+    font-size: 1em;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: .8em;
+    -webkit-transform-origin: right;
+    transform-origin: right;
+    z-index: 1;
+    transition: transform .4s ease-in-out;
+}
+.view-button:hover::before {
+    background: #000;
+    -webkit-transform-origin: right;
+    transform-origin: right;
+    transform: scaleX(0) 
+}

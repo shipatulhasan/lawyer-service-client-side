@@ -10,7 +10,7 @@ const Preview = ({service}) => {
           </h1>
             <img src={img?img:preview} alt="" />
             <div className='py-5'>
-           <h2 className='font-crimson max-w-2xl mb-2 md:mb-3 text-5xl leading-tight font-bold tracking-wide text-black md:text-6xl md:leading-tight capitalize dark:text-white'>
+           <h2 className='font-Bellefair font-normal max-w-2xl mb-2 md:mb-3 text-5xl leading-tight tracking-wide text-black md:text-6xl md:leading-tight capitalize dark:text-white'>
                 {title ? title : 'Service title'}
             </h2>
             <p className='text-lg dark:text-white'>

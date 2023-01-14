@@ -1,0 +1,11 @@
+.partnerSlider .swiper{
+    width: 100%;
+    height: 100%;
+}
+
+@media (max-width: 640px){
+    .partnerSlider img {
+        width: 100px;
+        height: 52px;
+      }
+    }

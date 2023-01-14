@@ -6,7 +6,7 @@ const CardSkeleton = ({card}) => {
         
        Array(card).fill(0).map((item,i)=> <div key={i} className='border border-khaki p-5 shadow-xl dark:bg-slate-800'>
           
-       <div className="object-cover w-full h-56 mb-6 rounded shadow-lg md:h-64 xl:h-80 hover:cursor-pointer">
+       <div className="object-cover w-full h-56 mb-6 rounded shadow-lg md:h-64 xl:h-72 hover:cursor-pointer">
            <Skeleton style={{height:'100%'}} />
        </div>
        

@@ -38,7 +38,7 @@ const IconBox = () => {
                       alt="Person"
                     />
                     <div className="flex flex-col justify-center">
-                      <p className="text-2xl mb-3 font-bold text-white">{box.title}</p>
+                      <p className="text-2xl mb-3 font-Bellefair text-white">{box.title}</p>
                       <p className="text-sm text-white">{box.text}</p>
                     </div>
                   </div>)

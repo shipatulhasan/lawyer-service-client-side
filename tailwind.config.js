@@ -10,7 +10,7 @@ module.exports = {
         'khaki': '#8C7156',
       },
       fontFamily: {
-        'crimson': ['Crimson Text', 'serif'],
+        'Bellefair': ['Bellefair', 'serif'],
       }
     },
    

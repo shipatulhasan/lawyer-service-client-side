@@ -7,8 +7,6 @@ export const useRole = (email) => {
     const [roleLoading,setRoleLoading] = useState(true)
     useEffect(()=>{
         if(email){
-            
-
             fetch(`${process.env.REACT_APP_api}/user/${email}`)
             .then(res=>res.json())
             .then(data=>{

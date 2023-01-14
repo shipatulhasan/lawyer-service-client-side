@@ -62,10 +62,8 @@ const ServiceDetails = ({service,user}) => {
     
     return (
         <div className='col-span-3 sm:max-w-xl md:max-w-full lg:max-w-screen-xl lg:px-16'>
-            
-
            <div className='pb-5 px-5'>
-           <h2 className='font-crimson max-w-2xl mb-2 md:mb-3 text-5xl leading-tight font-bold tracking-wide text-black md:text-6xl md:leading-tight capitalize dark:text-white'>
+           <h2 className='font-Bellefair font-normal max-w-2xl mb-2 md:mb-3 text-5xl leading-tight tracking-wide text-black md:text-6xl md:leading-tight capitalize dark:text-white'>
                 {title}
             </h2>
             <p className='text-lg dark:text-white'>
